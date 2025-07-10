@@ -1,0 +1,185 @@
+/* Neón Pro - CSS Ultimate para Jodita Loca */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --bg-dark: #0a001f;
+  --gradient-bg: linear-gradient(180deg, #1b0033, #000);
+  --neon-pink: #ff2dfd;
+  --neon-purple: #b100ff;
+  --neon-blue: #00e5ff;
+  --neon-yellow: #ffea00;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --font-main: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: var(--gradient-bg);
+  color: #ddd;
+}
+
+/* HEADER */
+header {
+  position: fixed; top:0; left:0; right:0;
+  background: var(--overlay);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border-bottom: 3px solid var(--neon-purple);
+  z-index: 1000;
+}
+header .neon-title {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 4px var(--neon-pink),
+    0 0 8px var(--neon-purple),
+    0 0 12px var(--neon-blue);
+  animation: flicker 2s infinite;
+  text-align: center;
+}
+@keyframes flicker {
+  0%,19%,21%,23%,25%,54%,56%,100% { opacity:1; }
+  20%,24%,55% { opacity:0.4; }
+}
+header .barra-colorida {
+  display:flex; justify-content:center; gap:8px; margin-top:0.5rem;
+}
+header .barra { width:8px; height:8px; border-radius:50%; }
+header .rosa { background: var(--neon-pink); }
+header .azul { background: var(--neon-blue); }
+header .amarilla { background: var(--neon-yellow); }
+
+/* MAIN CONTAINER */
+main { padding-top:120px; width:100%; max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:4rem; }
+
+/* 1. WIDE IMAGE PANORAMICA */
+.wide-image-container {
+  position:relative; height:60vh; overflow:hidden;
+}
+.wide-image-container img {
+  width:100%; height:100%; object-fit:cover;
+  filter: brightness(0.6);
+}
+.wide-image-container::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+}
+
+/* 2. HERO SECTION */
+.hero-box {
+  position:relative; top:-15vh;
+  background: var(--overlay);
+  margin: 0 auto;
+  padding:2rem;
+  max-width:800px;
+  border:2px solid var(--neon-blue);
+  border-radius:20px;
+  box-shadow: 0 0 20px var(--neon-blue);
+  text-align:center;
+}
+.hero-box h2 {
+  font-size:2.4rem; margin-bottom:1rem;
+  background: linear-gradient(90deg, var(--neon-yellow), var(--neon-pink));
+  -webkit-background-clip:text; color:transparent;
+  text-shadow:0 0 6px var(--neon-yellow);
+}
+.hero-box p { font-size:1.1rem; opacity:0.9; }
+
+/* 3. GRID DE TARJETAS PRINCIPALES */
+.grid-boxes {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:2rem;
+}
+.grid-boxes .card-glow {
+  background: var(--overlay);
+  border:2px solid var(--neon-pink);
+  border-radius:15px;
+  padding:1.5rem;
+  text-align:center;
+  transition: transform .4s ease, box-shadow .4s ease;
+  box-shadow:0 0 15px rgba(255,45,253,0.3);
+}
+.grid-boxes .card-glow:hover {
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-purple),
+    0 0 30px var(--neon-blue);
+  border-color: var(--neon-yellow);
+}
+.grid-boxes .card-glow h2 {
+  font-size:1.5rem; margin-bottom:0.8rem;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+  -webkit-background-clip:text; color:transparent;
+  text-shadow:0 0 5px var(--neon-pink);
+}
+.grid-boxes .card-glow p { margin-bottom:1.2rem; }
+.grid-boxes .card-glow a {
+  display:inline-block;
+  padding:.6rem 1.2rem;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+  color:white; border-radius:9999px;
+  box-shadow:0 0 10px var(--neon-pink);
+  transition: transform .3s, box-shadow .3s;
+}
+.grid-boxes .card-glow a:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 20px var(--neon-pink);
+}
+
+/* 4. RECTANGULOS EXTRAS */
+.extra-rects {
+  display:flex; flex-wrap:wrap; gap:1rem;
+}
+.extra-rects .info-rect {
+  flex:1 1 calc(33% - 1rem);
+  background: var(--overlay);
+  padding:1rem;
+  border-left:5px solid var(--neon-blue);
+  border-radius:10px;
+  font-size:.95rem;
+  box-shadow:0 0 10px rgba(0,229,255,0.3);
+  transition: background .3s;
+}
+.extra-rects .info-rect:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* 5. CARRUSEL AVANZADO */
+.carousel-container {
+  position:relative;
+  overflow:hidden;
+  height:300px;
+  background: var(--overlay);
+  border:2px solid var(--neon-yellow);
+  border-radius:20px;
+}
+.carousel-track { display:flex; transition:transform .5s ease-in-out; }
+.carousel-slide {
+  min-width:100%; padding:1.5rem; color:#fff;
+}
+.carousel-prev, .carousel-next {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background: var(--overlay); color:white;
+  border:none; padding:.8rem; border-radius:50%;
+  cursor:pointer; box-shadow:0 0 8px var(--neon-yellow);
+  transition: background .3s;
+}
+.carousel-prev:hover, .carousel-next:hover { background: rgba(0,0,0,0.8); }
+.carousel-prev { left:1rem; }
+.carousel-next { right:1rem; }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .hero-box { top:-10vh; padding:1.5rem; }
+  .grid-boxes { grid-template-columns:1fr; }
+  .extra-rects .info-rect { flex:1 1 100%; }
+}

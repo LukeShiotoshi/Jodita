@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Vaso del Destino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="C:\Users\lukab\Desktop\joda\CSS\estils.css">
+</head>
+
+<body class="relative">
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+            alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+            class="w-full h-full object-cover opacity-20" />
+    </div>
+
+    <div class="">
+        <header class="text-center mb-8 fade-in">
+            <div class=""></div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 glow-text text-yellow-300">EL VASO <br> DEL DESTINO</h1>
+            <p class="text-xl opacity-90">¿Serás valiente o preferirás la humillación?<br> Elige rápido... ¡o toma doble!
+            </p>
+            <nav>
+                <ul class="flex space-x-4 md:space-x-6">
+                    <li><a href="C:\Users\lukab\Desktop\joda\index.html" class="text-white hover:text-neon-blue transition-colors">Inicio</a></li>
+                    <li><a href="C:\Users\lukab\Desktop\joda\page\Oraculo.html"
+                            class="text-white hover:text-neon-blue transition-colors">El oraculo del pedo</a></li>
+                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Ruleta.html"
+                            class="text-white hover:text-neon-blue transition-colors">Ruleta de Vicios</a></li>
+                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Conocete.html"
+                            class="text-white hover:text-neon-blue transition-colors">Conocete</a></li>
+                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Reglas</a></li>
+                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Contacto</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main class="max-w-2xl mx-auto">
+            <!-- Estado inicial -->
+            <div id="initialState" class="text-center fade-in">
+                <div class="card-glow bg-gray-800 bg-opacity-70 rounded-xl p-8 mb-8">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/56c5935c-4895-4459-a638-9c8b97e55aaf.png"
+                        alt="Imagen de varios vasos de shot alineados con fondo borroso de fiesta"
+                        class="mx-auto mb-6 rounded-lg w-full max-w-md" />
+                    <h2 class="text-3xl font-bold mb-4 text-yellow-300">¡Comienza el juego!</h2>
+                    <p class="mb-6">Cada jugador deberá enfrentarse al Vaso del Destino. Deberás elegir rápido o las
+                        consecuencias serán peores...</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        <button onclick="startGame()"
+                            class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-6 rounded-lg button-glow transition-all text-lg">
+                            Iniciar Juego
+                        </button>
+                        <a href="#rules"
+                            class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 px-6 rounded-lg button-glow transition-all text-lg">
+                            Ver Reglas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego activo -->
+            <div id="gameState" class="hidden text-center">
+                <div class="card-glow bg-gray-800 bg-opacity-70 rounded-xl p-8 mb-8">
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-400 mb-1">Jugador #<span id="currentPlayerDisplay">1</span></div>
+                        <h2 class="text-3xl font-bold mb-2 text-yellow-300">ELIGE TU DESTINO</h2>
+                        <div class="countdown mb-4" id="countdown">10</div>
+                        <div class="h-2 bg-gray-700 rounded-full mb-6">
+                            <div id="timerBar" class="h-full bg-yellow-500 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 mt-4">
+                        <button id="optionA" onclick="chooseOption('A')"
+                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-6 px-4 rounded-lg button-glow transition-all text-xl">
+                            <span class="block text-2xl mb-1">A</span>
+                            <span id="optionAText">Tomar un mini shot</span>
+                        </button>
+
+                        <button id="optionB" onclick="chooseOption('B')"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-4 rounded-lg button-glow transition-all text-xl">
+                            <span class="block text-2xl mb-1">B</span>
+                            <span id="optionBText">Hacer algo ridículo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultado -->
+            <div id="resultState" class="hidden text-center">
+                <div class="card-glow bg-gray-800 bg-opacity-70 rounded-xl p-8 mb-8">
+                    <h2 id="resultTitle" class="text-3xl font-bold mb-6 text-yellow-300">¡RESULTADO!</h2>
+                    <p id="resultText" class="text-xl mb-6"></p>
+                    <button onclick="nextPlayer()"
+                        class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg button-glow transition-all text-lg">
+                        Siguiente Jugador
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reglas -->
+            <div id="rules" class="card-glow bg-gray-800 rounded-xl p-8 mt-12 ">
+                <h2 class="text-2xl font-bold mb-4 text-yellow-300">📜 Reglas del Juego</h2>
+                <ul class="space-y-3 text-left">
+                    <li>1. Se forma una ronda con los jugadores.</li>
+                    <li>2. Cada jugador debe enfrentarse al Vaso del Destino cuando sea su turno.</li>
+                    <li>3. Aparecerán dos opciones: <span class="text-red-400">A (Tomar un shot)</span> o <span
+                            class="text-blue-400">B (Hacer algo ridículo)</span>.</li>
+                    <li>4. Si el jugador duda más de <span class="font-bold">10 segundos</span>, deberá tomar <span
+                            class="font-bold">el doble</span>.</li>
+                    <li>5. La opción B siempre será más humillante pero te salvará del trago.</li>
+                    <li>6. El juego continúa hasta que todos hayan jugado o ya no puedan continuar.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <footer class="text-center py-6 text-gray-400 text-sm relative z-10">
+        <p>© 2025 El Vaso del Destino - Juego para fiestas</p>
+    </footer>
+
+    <script>
+        // Opciones posibles
+        const shots = [
+            "Un shot de vodka",
+            "Un shot de fernet con coca",
+            "Un shot de whisky"
+        ];
+
+        const ridiculousOptions = [
+            {
+                text: "Canta 'Tu melodía favorita de Ricardo Arjona' como si fuera una ópera",
+            },
+            {
+                text: "Baila como si estuvieras en una tabla de surf en medio de la sala",
+            },
+            {
+                text: "Imita a tu personaje de tv favorito durante 30 segundos",
+            },
+            {
+                text: "Habla con acento francés exagerado durante los próximos 3 turnos",
+            },
+            {
+                text: "Publica en tu estado '¡Amo los selfis sin camiseta!' y mantenlo 24h",
+            },
+            {
+                text: "Deja que el grupo elija un tatuaje temporal para ponerte",
+            },
+            {
+                text: "Dile un piropo cursi a cada persona del grupo",
+            }
+        ];
+
+        // Variables del juego
+        let timer;
+        let timeLeft = 10;
+        let currentPlayer = 1;
+
+        function startGame() {
+            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('gameState').classList.remove('hidden');
+            document.getElementById('currentPlayerDisplay').textContent = currentPlayer;
+
+            // Seleccionar opciones aleatorias
+            const randomShotIndex = Math.floor(Math.random() * shots.length);
+            const randomOptionIndex = Math.floor(Math.random() * ridiculousOptions.length);
+
+            document.getElementById('optionAText').textContent = shots[randomShotIndex];
+            document.getElementById('optionBText').textContent = ridiculousOptions[randomOptionIndex].text;
+
+            // Iniciar cuenta regresiva
+            startCountdown();
+        }
+
+        function startCountdown() {
+            timeLeft = 10;
+            document.getElementById('countdown').textContent = timeLeft;
+            document.getElementById('timerBar').style.width = '100%';
+
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('countdown').textContent = timeLeft;
+                document.getElementById('timerBar').style.width = `${timeLeft * 10}%`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timeOut();
+                }
+            }, 1000);
+        }
+
+        function chooseOption(option) {
+            clearInterval(timer);
+
+            const resultState = document.getElementById('resultState');
+            const resultText = document.getElementById('resultText');
+            const resultTitle = document.getElementById('resultTitle');
+
+            document.getElementById('gameState').classList.add('hidden');
+            resultState.classList.remove('hidden');
+
+            if (option === 'A') {
+                const shotText = document.getElementById('optionAText').textContent;
+                resultTitle.textContent = "¡VALIENTE!";
+                resultText.textContent = `Has elegido la opción A: ${shotText}. ¡Salud! 🍾`;
+            } else {
+                const ridiculousText = document.getElementById('optionBText').textContent;
+                resultTitle.textContent = "¡HUMILLACIÓN!";
+                resultText.innerHTML = `Has elegido la opción B:<br><span class="text-blue-300">"${ridiculousText}"</span><br><br>¡Todos a reír! 😆`;
+            }
+        }
+
+        function timeOut() {
+            const shotText = document.getElementById('optionAText').textContent;
+
+            document.getElementById('gameState').classList.add('hidden');
+
+            const resultState = document.getElementById('resultState');
+            const resultText = document.getElementById('resultText');
+            const resultTitle = document.getElementById('resultTitle');
+
+            resultState.classList.remove('hidden');
+            resultTitle.textContent = "¡DEMASIADO TARDE!";
+            resultText.textContent = `¡Te demoraste demasiado! Toma DOBLE de ${shotText}. ¡Castigo! 🥃🥃`;
+        }
+
+        function nextPlayer() {
+            currentPlayer++;
+            document.getElementById('resultState').classList.add('hidden');
+            startGame();
+        }
+    </script>
+</body>
+
+</html>
