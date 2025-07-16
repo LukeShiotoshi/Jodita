@@ -28,11 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const drinkRef = db.ref('counter/' + key);
     drinkRef.transaction(current => (current || 0) + 1);
   };
+   actualizarContadoresUI()
 });
 
 
-  // Mostrar contador al cargar la página
-  actualizarContadoresUI()
 async function traducirHTML(html) {
   try {
     const res = await fetch('https://libretranslate.com/translate', {
