@@ -1,46 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const btnFetch = document.getElementById('cocktailBtn')
-  const container = document.getElementById('cocktail-container')
-  const counterDiv = document.getElementById('drink-counter')
+ddocument.addEventListener('DOMContentLoaded', () => {
+  const counterDiv = document.getElementById('drink-counter');
 
-  // Función para actualizar UI con datos de localStorage
-  function actualizarContadoresUI() {
-    const textos = []
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i)
-      if (key.startsWith('counter-')) {
-        const val = localStorage.getItem(key)
-        const nombre = key.replace('counter-', '').replace(/-/g, ' ')
-        textos.push(`${val} ${nombre}`)
-      }
+  // Actualiza la UI con datos que vienen de Firebase
+  function actualizarContadoresUI(data) {
+    if (!data) {
+      counterDiv.innerHTML = '<p class="text-yellow-300">Nadie bancó ningún trago aún</p>';
+      return;
     }
-    counterDiv.innerHTML = textos.length
-      ? `<div class="inline-block max-w-4xl px-6 py-2 bg-purple-900 bg-opacity-70 rounded-lg text-yellow-300 font-semibold shadow-lg">
-          ${textos.join(', ')}
-        </div>`
-      : `<div class="inline-block max-w-4xl px-6 py-2 bg-purple-900 bg-opacity-70 rounded-lg text-yellow-300 font-semibold shadow-lg">
-          Nadie bancó ningún trago aún
-        </div>`
+    const textos = Object.entries(data).map(([key, val]) => {
+      // El key viene como "Mojito", "Adios-Amigos-Cocktail", etc.
+      const nombre = key.replace(/-/g, ' ');
+      return `${val} ${nombre}`;
+    });
+    counterDiv.innerHTML = `<p class="text-yellow-300 font-semibold">${textos.join(', ')}</p>`;
   }
-  function renderVotingButtons(nombre) {
-  return `
-    <div class="mt-4">
-      <p class="text-[#00f5ff] font-bold mb-2">¿Lo bancás?</p>
-      <button onclick="vote('${nombre}')"
-              class="text-lg font-semibold bg-[#00f5ff] px-4 py-2 rounded neon-border
-                     hover:bg-white hover:text-black transition">
-        re banco
-      </button>
-    </div>`
-}
 
-  // Función para votar y guardar en localStorage
-  window.vote = function (drinkName) {
-    const key = `counter-${drinkName.replace(/\s+/g, '-')}`
-    let cnt = parseInt(localStorage.getItem(key)) || 0
-    localStorage.setItem(key, ++cnt)
-    actualizarContadoresUI()
-  }
+  // Escuchamos cambios en los votos en Firebase en tiempo real
+  const ref = db.ref('counter');
+  ref.on('value', snapshot => {
+    const data = snapshot.val();
+    actualizarContadoresUI(data);
+  });
+
+  // Función global para votar, que suma 1 en Firebase
+  window.vote = function(drinkName) {
+    const key = drinkName.replace(/\s+/g, '-');
+    const drinkRef = db.ref('counter/' + key);
+    drinkRef.transaction(current => (current || 0) + 1);
+  };
+});
+
 
   // Mostrar contador al cargar la página
   actualizarContadoresUI()
@@ -137,4 +126,3 @@ async function traducirHTML(html) {
       container.innerHTML = `<p class="text-red-500">Error al cargar el trago. Probá de nuevo.</p>`
     }
   })
-})
