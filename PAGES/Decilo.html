@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decilo O Hacelo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\CSS\Conocete.css">
+    <link rel="icon" type="image/x-icon" href="../ASSETS/decilo.png">
+</head>
+
+<body class="min-h-screen flex flex-col justify-betwee">
+    <main class="flex-grow">
+        <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+                alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+                class="w-full h-full object-cover opacity-20 pointer-events-none" />
+        </div>
+        <header>
+            <a href="./Decilo.html" class="flex items-center gap-4">
+                <img src="../ASSETS/decilo.png" alt="Logo Dosis de Verdad"
+                    class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">Decilo O Hacelo</h1>
+            </a>
+            <!-- Menú desktop -->
+            <nav id="mobileMenu" class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <a href="./Lo_bancas.html" class="hover:text-[#00f5ff]">Lo bancas?</a>
+                <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del
+                    pedo</a>
+                <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+                <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Reglas</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+            </nav>
+        </header>
+        <div class="container mx-auto max-w-2xl relative z-10">
+
+            <!-- Setup Form -->
+            <div id="setup-form" class="app-card p-6 mb-6 fade-in">
+                <h2 class="text-2xl font-bold mb-4">Configuración del juego</h2>
+
+                <!-- Player setup -->
+                <div class="mb-6">
+                    <label class="block mb-2 font-semibold">Jugadores</label>
+                    <div class="flex gap-4">
+                        <div class="flex-1">
+                            <input type="text" id="player-names" placeholder="Nombres separados por comas"
+                                class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+                            <p class="text-sm mt-1 text-gray-400">Ejemplo: Ana, Juan, Pedro</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <label class="text-sm mb-1">O elige jugadores anónimos</label>
+                            <div class="flex border rounded overflow-hidden">
+                                <button id="decrease-players"
+                                    class="px-3 py-1 bg-gray-800 hover:bg-gray-700 focus:outline-none">-</button>
+                                <input type="number" id="player-count" min="2" max="20" value="4"
+                                    class="w-16 text-center border-none focus:outline-none">
+                                <button id="increase-players"
+                                    class="px-3 py-1 bg-gray-800 hover:bg-gray-700 focus:outline-none">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="mb-6">
+                    <label class="block mb-2 font-semibold">Categorías</label>
+                    <div class="grid grid-cols-2 gap-3 mb-2">
+                        <button class="category-btn active p-2 rounded-lg text-sm md:text-base"
+                            data-category="hot-dares">
+                            <i class="fas fa-fire mr-2"></i>Retos Picantes
+                        </button>
+                        <button class="category-btn active p-2 rounded-lg text-sm md:text-base"
+                            data-category="drinking-dares">
+                            <i class="fas fa-glass-cheers mr-2"></i>Retos para Beber
+                        </button>
+                        <button class="category-btn active p-2 rounded-lg text-sm md:text-base"
+                            data-category="uncomfortable-truths">
+                            <i class="fas fa-comment-dots mr-2"></i>Verdades Incómodas
+                        </button>
+                        <button class="category-btn active p-2 rounded-lg text-sm md:text-base"
+                            data-category="intimate-truths">
+                            <i class="fas fa-heart mr-2"></i>Verdades Íntimas
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-400">Selecciona al menos una categoría</p>
+                </div>
+
+                <!-- Start button -->
+                <button id="start-game"
+                    class="btn-primary w-full py-3 font-bold rounded-lg shadow-lg transform transition hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled>
+                    Comenzar Juego
+                </button>
+            </div>
+
+            <!-- Challenge Card (Hidden initially) -->
+            <div id="global-score" class="text-white font-semibold mb-4 text-lg z-10"></div>
+
+            <div id="challenge-container" class="hidden">
+                <div class="app-card p-6 mb-6 challenge-card flex flex-col justify-between fade-in">
+                    <div>
+                        <div id="turn-info" class="mb-4 text-lg font-medium"></div>
+                        <span id="challenge-category" class="category-label text-white"></span>
+                        <h2 id="challenge-text" class="text-2xl md:text-3xl font-bold mb-6"></h2>
+                        <div id="buttons-container" class="flex gap-4 w-full max-w-md mx-auto">
+                                <button id="challenge-completed"
+                                class="btn-primary flex-1 py-3 text-white font-bold rounded-lg shadow-lg transform transition hover:scale-105">Cumplido</button>
+                            <button id="challenge-failed"
+                                class="btn-primary flex-1 py-3 text-white font-bold rounded-lg shadow-lg transform transition hover:scale-105">No
+                                cumplido</button>
+                            </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button id="next-challenge" class="hidden">
+                            Siguiente
+                        </button>
+                        <button id="restart-game"
+                            class="bg-gray-200 hover:bg-gray-300 py-3 px-4 text-gray-800 font-bold rounded-lg shadow-lg transition">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>  
+                    <p id="loading-text" class="text-center text-white mt-4 hidden">Pensando el próximo...</p>
+                </div>
+            </div>
+            <div id="players-scores" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white font-medium text-sm z-10">
+            </div>
+
+
+        </div>
+    </main>
+    <script id="app-script" src="../JS/decilo.js"></script>
+    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
+        </div>
+    </footer>
+</body>
+
+</html>
