@@ -4,37 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Oráculo del Pedo | Caos Total</title>
+    <title>El Oráculo del Pedo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="C:\Users\lukab\Desktop\joda\CSS\styles.css">
-    <link rel="icon" href="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7025f66c-5d2d-4718-b92c-559b08397d78.png" type="image/png">
+    <script src="..JS/burger.js"></script>
+    <link rel="stylesheet" href="C:\Users\lukab\Desktop\joda\CSS\oraculo.css">
+    <link rel="icon"
+        href="../ASSETS/oraculo.png"
+        type="image/png">
 </head>
 
 <body class="flex flex-col min-h-screen">
+        <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+            alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+            class="w-full h-full object-cover opacity-20 pointer-events-none" />
+    </div>
     <header
         class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-4 px-6 border-b border-purple-900 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7025f66c-5d2d-4718-b92c-559b08397d78.png"
-                    alt="Logo del Oráculo del Pedo: un ojo místico multicolor con efecto neón"
-                    class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
-                <h1 class="text-xl md:text-2xl font-bold neon-text neon-pink">El Oráculo del Pedo</h1>
+            <a href="./Oraculo.html">
+                <img src="../ASSETS/oraculo.png"
+                alt="Logo del Oráculo del Pedo: un ojo místico multicolor con efecto neón"
+                class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
+            </a>
+            <a href="./Oraculo.html"><h1 class="text-xl md:text-2xl font-bold neon-text neon-pink">El Oráculo del Pedo</h1></a>
             </div>
-            <nav>
-                <ul class="flex space-x-4 md:space-x-6">
-                    <li><a href="C:\Users\lukab\Desktop\joda\index.html" class="text-white hover:text-neon-blue transition-colors">Inicio</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Ruleta.html" class="text-white hover:text-neon-blue transition-colors">Ruleta de Vicios</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Vaso.html" class="text-white hover:text-neon-blue transition-colors">El vaso del destino</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Conocete.html" class="text-white hover:text-neon-blue transition-colors">Conocete</a></li>
-                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Reglas</a></li>
-                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Contacto</a></li>
-                </ul>
+            <!-- Menú desktop -->
+            <nav id="mobileMenu" class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo Bancas?</a>
+                <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+                <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+                <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decilo O Hacelo</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Reglas</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center">
+    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center relative z-10">
         <section class="w-full max-w-3xl text-center mb-12">
             <h2 class="text-3xl md:text-5xl font-bold mb-4 neon-text neon-blue neon-effect">Modo Caos Total</h2>
             <p class="text-lg md:text-xl text-gray-300 mb-8">El juego sólo termina cuando alguien se cae. Sin turnos.
@@ -73,147 +83,15 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-6 border-t border-purple-900">
-        <div class="container mx-auto px-4 text-center text-gray-400">
-            <p>© 2025 El Oráculo del Pedo - Todos los derechos reservados</p>
-            <p class="mt-2 text-sm">Juega responsablemente y con moderación</p>
+    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
         </div>
     </footer>
 
-    <script>
-
-        const veredictos = [
-"Vos, el de la remera negra, confesá un secreto o tomás 3.",
-            "Decime tu crush del grupo o te hacés un shot de lo que haya más cerca.",
-            "Mostrá tu historial de Google o regalá tu prenda favorita de lo que tenés puesto.",
-            "Inventate un apodo hot para vos mismo y usalo hasta el final del juego.",
-            "Chupale el cuello a alguien o decí en voz alta tu última fantasía sexual.",
-            "Besá al que esté a tu izquierda o tomás 5 sin respirar.",
-            "Mandale un emoji sugerente al último contacto que no sea familia o te vas quedando sin medias.",
-            "Actuá cómo gemís o alguien lo hace por vos y comparan.",
-            "Tocá el pecho o culo de alguien con consentimiento, o pasás una ronda con los ojos vendados.",
-            "Contá tu peor experiencia sexual o dejás que otro te invente una y la actuás.",
-            "Le mandás un audio a alguien diciendo 'la pasé increíble anoche' y no podés explicar nada hasta mañana.",
-            "Comé algo sin usar las manos o dejás que alguien te dé de comer lo que quiera.",
-            "Contá una vez que estuviste con alguien y después descubriste algo turbio.",
-            "Hacete un striptease de 10 segundos o te lo hace otro por vos.",
-            "Mandale un mensaje a tu ex diciendo 'todavía pienso en vos' o te tocás la nariz cada vez que hablás por el resto del juego.",
-            "Decí quién creés que es el mejor en la cama del grupo o dejás que te elijan pareja para un baile lento.",
-            "Parate, cerrá los ojos y dejá que alguien te bese donde quiera (sin pasar la raya obvio).",
-            "El que tenga menos ropa ahora tiene el poder de hacerte cualquier pregunta incómoda.",
-            "Contá una vez que mentiste para tener sexo o inventate una historia tan creíble que el grupo no sepa si fue real.",
-            "Si tenés más de 3 apps de citas instaladas, tomás 2. Si no, mostrás tu galería.",
-            "Mostrá tu outfit interior (sin sacarte nada) o que alguien más lo describa como se lo imagina.",
-            "Tenés 10 segundos para seducir al que tenés más cerca. Si no se ríe, tomás vos. Si se ríe, toma él/ella.",
-            "Le pasás el celu a alguien al azar para que publique una historia y no podés borrarla por 1 hora.",
-            "Actuá cómo seducís a alguien por mensaje usando solo una frase. Si nadie se calienta, prenda menos.",
-            "Pedile a alguien del grupo que te dé una nalgada. Si se niega, ambos toman doble.",
-            "Nombrá a dos personas que te cogerías del grupo, pero con una excusa que lo justifique.",
-            "Contá tu fetiche más raro o hacé una demostración improvisada.",
-            "Hacé una pose tipo revista de gimnasio y mantenela hasta que alguien te saque foto.",
-            "Elegí a alguien para tener 'mirada intensa' por 30 segundos. Si alguien parpadea, toma.",
-            "Decí a quién te besarías si estuvieran solos esta noche. Si no respondés, te besan a vos.",
-            "Vos, el de la remera negra, confesá un secreto o tomás 3",
-            "Decime tu crush del grupo o te hacés un shot de lo que haya más cerca",
-            "Mostrá tu historial de Google o regalá tu prenda favorita de lo que tenés puesto",
-            "Inventate un apodo hot para vos mismo y usalo hasta el final del juego",
-            "Chupale el cuello a alguien o decí en voz alta tu última fantasía sexual",
-            "Besá al que esté a tu izquierda o tomás 5 sin respirar",
-            "Mandale un emoji sugerente al último contacto que no sea familia o te vas quedando sin medias",
-            "Actuá cómo gemís o alguien lo hace por vos y comparan",
-            "Tocá el pecho o culo de alguien con consentimiento, o pasás una ronda con los ojos vendados",
-            "Contá tu peor experiencia sexual o dejás que otro te invente una y la actuás",
-            "Le mandás un audio a alguien diciendo 'la pasé increíble anoche' y no podés explicar nada hasta mañana",
-            "Comé algo sin usar las manos o dejás que alguien te dé de comer lo que quiera",
-            "Contá una vez que estuviste con alguien y después descubriste algo turbio",
-            "Hacete un striptease de 10 segundos o te lo hace otro por vos",
-            "Mandale un mensaje a tu ex diciendo 'todavía pienso en vos' o te tocás la nariz cada vez que hablás por el resto del juego",
-            "Decí quién creés que es el mejor en la cama del grupo o dejás que te elijan pareja para un baile lento",
-            "Parate, cerrá los ojos y dejá que alguien te bese donde quiera (sin pasar la raya obvio)",
-            "El que tenga menos ropa ahora tiene el poder de hacerte cualquier pregunta incómoda",
-            "Contá una vez que mentiste para tener sexo o inventate una historia tan creíble que el grupo no sepa si fue real",
-            "Si tenés más de 3 apps de citas instaladas, tomás 2, si no, mostrás tu galería",
-            "Mostrá tu outfit interior (sin sacarte nada) o que alguien más lo describa como se lo imagina",
-            "Tenés 10 segundos para seducir al que tenés más cerca, si no se ríe, tomás vos, si se ríe, toma él/ella",
-            "Le pasás el celu a alguien al azar para que publique una historia y no podés borrarla por 1 hora",
-            "Actuá cómo seducís a alguien por mensaje usando solo una frase, si nadie se calienta, prenda menos",
-            "Pedile a alguien del grupo que te dé una nalgada, si se niega, ambos toman doble",
-            "Nombrá a dos personas que te cogerías del grupo, pero con una excusa que lo justifique",
-            "Contá tu fetiche más raro o hacé una demostración improvisada",
-            "Hacé una pose tipo revista de gimnasio y mantenela hasta que alguien te saque foto",
-            "Elegí a alguien para tener 'mirada intensa' por 30 segundos, si alguien parpadea, toma",
-            "Decí a quién te besarías si estuvieran solos esta noche, si no respondés, te besan a vos",
-        ];
-
-        const oraculoBtn = document.getElementById('oraculo-btn');
-        const veredictoElement = document.getElementById('veredicto');
-
-        let synth = window.speechSynthesis;
-        let voices = [];
-
-
-        function loadVoices() {
-            voices = synth.getVoices();
-  
-            const spanishVoices = voices.filter(voice => voice.lang.includes('es'));
-            if (spanishVoices.length > 0) voices = spanishVoices;
-        }
-
-    
-        synth.onvoiceschanged = loadVoices;
-
-
-        function speak(text) {
-            if (synth.speaking) synth.cancel();
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.voice = voices[0] || null;
-            utterance.rate = 0.9;
-            utterance.pitch = 0;
-
-            synth.speak(utterance);
-        }
-
-
-        oraculoBtn.addEventListener('click', function () {
-
-            oraculoBtn.disabled = true;
-            oraculoBtn.classList.add('opacity-50');
-
-            veredictoElement.textContent = "El Oráculo está decidiendo tu destino...";
-            veredictoElement.classList.remove('neon-blue', 'neon-pink', 'neon-purple');
-
-
-            const colors = ['neon-blue', 'neon-pink', 'neon-purple'];
-            let counter = 0;
-            const colorInterval = setInterval(() => {
-                veredictoElement.classList.remove(...colors);
-                veredictoElement.classList.add(colors[counter % colors.length]);
-                counter++;
-            }, 200);
-
-
-            setTimeout(() => {
-                clearInterval(colorInterval);
-
-                const randomIndex = Math.floor(Math.random() * veredictos.length);
-                const veredicto = veredictos[randomIndex];
-
-
-                veredictoElement.textContent = veredicto;
-                veredictoElement.classList.remove(...colors);
-                veredictoElement.classList.add('neon-pink');
-
-
-                speak(veredicto);
-
-
-                oraculoBtn.disabled = false;
-                oraculoBtn.classList.remove('opacity-50');
-            }, 1500);
-        });
-    </script>
+    <script src="../JS/oraculo.js"></script>
+ 
 </body>
 
 </html>

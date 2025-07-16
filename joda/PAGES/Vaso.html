@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Vaso del Destino</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="C:\Users\lukab\Desktop\joda\CSS\estils.css">
+    <link rel="stylesheet" href="..\CSS\Vaso.css">
+    <link rel="icon" type="image/x-icon"" href=" ../ASSETS/vaso.png">
 </head>
 
 <body class="relative">
@@ -17,28 +18,28 @@
     </div>
 
     <div class="">
-        <header class="text-center mb-8 fade-in">
-            <div class=""></div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 glow-text text-yellow-300">EL VASO <br> DEL DESTINO</h1>
-            <p class="text-xl opacity-90">¿Serás valiente o preferirás la humillación?<br> Elige rápido... ¡o toma doble!
-            </p>
-            <nav>
-                <ul class="flex space-x-4 md:space-x-6">
-                    <li><a href="C:\Users\lukab\Desktop\joda\index.html" class="text-white hover:text-neon-blue transition-colors">Inicio</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\page\Oraculo.html"
-                            class="text-white hover:text-neon-blue transition-colors">El oraculo del pedo</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Ruleta.html"
-                            class="text-white hover:text-neon-blue transition-colors">Ruleta de Vicios</a></li>
-                    <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Conocete.html"
-                            class="text-white hover:text-neon-blue transition-colors">Conocete</a></li>
-                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Reglas</a></li>
-                    <li><a href="#" class="text-white hover:text-neon-blue transition-colors">Contacto</a></li>
-                </ul>
-            </nav>
+        <header class="">
+            <a href="" aria-label="Ir a la página principal El Vaso del Destino">
+                <img src="../ASSETS/vaso.png" alt=""
+                    class="w-12 h-12 rounded-full object-cover neon-border neon-purple" /></a>
+            <a href="./Vaso.html">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 glow-text text-yellow-300">EL VASO DEL DESTINO</h1>
+            </a>
 
+            <!-- Menú desktop -->
+            <nav id="mobileMenu" class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <a href="./Lo_bancas.html" class="hover:text-[#00f5ff]">Lo bancas?</a>
+                <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo
+                    del pedo</a>
+                <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+                <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decilo O Hacelo</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Reglas</a>
+                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+            </nav>
         </header>
 
-        <main class="max-w-2xl mx-auto">
+        <main class="max-w-2xl mx-auto relative z-10">
             <!-- Estado inicial -->
             <div id="initialState" class="text-center fade-in">
                 <div class="card-glow bg-gray-800 bg-opacity-70 rounded-xl p-8 mb-8">
@@ -95,10 +96,20 @@
                 <div class="card-glow bg-gray-800 bg-opacity-70 rounded-xl p-8 mb-8">
                     <h2 id="resultTitle" class="text-3xl font-bold mb-6 text-yellow-300">¡RESULTADO!</h2>
                     <p id="resultText" class="text-xl mb-6"></p>
-                    <button onclick="nextPlayer()"
-                        class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg button-glow transition-all text-lg">
-                        Siguiente Jugador
+
+                    <!-- Mensaje gracioso -->
+                    <p id="confirmationMessage" class="text-lg text-green-400 mb-4 hidden"></p>
+
+                    <!-- Botón de confirmación -->
+                    <button id="confirmButton" onclick="confirmChallenge()"
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all text-lg hidden">
+                        ✅ Reto cumplido
                     </button>
+
+                    <!-- Barra de progreso para la espera automática -->
+                    <div class="h-2 bg-gray-700 rounded-full mt-6">
+                        <div id="resultTimerBar" class="h-full bg-yellow-500 rounded-full" style="width: 0%"></div>
+                    </div>
                 </div>
             </div>
 
@@ -119,121 +130,14 @@
         </main>
     </div>
 
-    <footer class="text-center py-6 text-gray-400 text-sm relative z-10">
-        <p>© 2025 El Vaso del Destino - Juego para fiestas</p>
+    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
+        </div>
     </footer>
 
-    <script>
-        // Opciones posibles
-        const shots = [
-            "Un shot de vodka",
-            "Un shot de fernet con coca",
-            "Un shot de whisky"
-        ];
-
-        const ridiculousOptions = [
-            {
-                text: "Canta 'Tu melodía favorita de Ricardo Arjona' como si fuera una ópera",
-            },
-            {
-                text: "Baila como si estuvieras en una tabla de surf en medio de la sala",
-            },
-            {
-                text: "Imita a tu personaje de tv favorito durante 30 segundos",
-            },
-            {
-                text: "Habla con acento francés exagerado durante los próximos 3 turnos",
-            },
-            {
-                text: "Publica en tu estado '¡Amo los selfis sin camiseta!' y mantenlo 24h",
-            },
-            {
-                text: "Deja que el grupo elija un tatuaje temporal para ponerte",
-            },
-            {
-                text: "Dile un piropo cursi a cada persona del grupo",
-            }
-        ];
-
-        // Variables del juego
-        let timer;
-        let timeLeft = 10;
-        let currentPlayer = 1;
-
-        function startGame() {
-            document.getElementById('initialState').classList.add('hidden');
-            document.getElementById('gameState').classList.remove('hidden');
-            document.getElementById('currentPlayerDisplay').textContent = currentPlayer;
-
-            // Seleccionar opciones aleatorias
-            const randomShotIndex = Math.floor(Math.random() * shots.length);
-            const randomOptionIndex = Math.floor(Math.random() * ridiculousOptions.length);
-
-            document.getElementById('optionAText').textContent = shots[randomShotIndex];
-            document.getElementById('optionBText').textContent = ridiculousOptions[randomOptionIndex].text;
-
-            // Iniciar cuenta regresiva
-            startCountdown();
-        }
-
-        function startCountdown() {
-            timeLeft = 10;
-            document.getElementById('countdown').textContent = timeLeft;
-            document.getElementById('timerBar').style.width = '100%';
-
-            timer = setInterval(() => {
-                timeLeft--;
-                document.getElementById('countdown').textContent = timeLeft;
-                document.getElementById('timerBar').style.width = `${timeLeft * 10}%`;
-
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    timeOut();
-                }
-            }, 1000);
-        }
-
-        function chooseOption(option) {
-            clearInterval(timer);
-
-            const resultState = document.getElementById('resultState');
-            const resultText = document.getElementById('resultText');
-            const resultTitle = document.getElementById('resultTitle');
-
-            document.getElementById('gameState').classList.add('hidden');
-            resultState.classList.remove('hidden');
-
-            if (option === 'A') {
-                const shotText = document.getElementById('optionAText').textContent;
-                resultTitle.textContent = "¡VALIENTE!";
-                resultText.textContent = `Has elegido la opción A: ${shotText}. ¡Salud! 🍾`;
-            } else {
-                const ridiculousText = document.getElementById('optionBText').textContent;
-                resultTitle.textContent = "¡HUMILLACIÓN!";
-                resultText.innerHTML = `Has elegido la opción B:<br><span class="text-blue-300">"${ridiculousText}"</span><br><br>¡Todos a reír! 😆`;
-            }
-        }
-
-        function timeOut() {
-            const shotText = document.getElementById('optionAText').textContent;
-
-            document.getElementById('gameState').classList.add('hidden');
-
-            const resultState = document.getElementById('resultState');
-            const resultText = document.getElementById('resultText');
-            const resultTitle = document.getElementById('resultTitle');
-
-            resultState.classList.remove('hidden');
-            resultTitle.textContent = "¡DEMASIADO TARDE!";
-            resultText.textContent = `¡Te demoraste demasiado! Toma DOBLE de ${shotText}. ¡Castigo! 🥃🥃`;
-        }
-
-        function nextPlayer() {
-            currentPlayer++;
-            document.getElementById('resultState').classList.add('hidden');
-            startGame();
-        }
-    </script>
+    <script src="../JS/vaso.js"></script>
 </body>
 
 </html>

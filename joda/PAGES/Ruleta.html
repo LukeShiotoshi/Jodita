@@ -4,40 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta de Vicios - Juego de Fiesta</title>
+    <title>Ruleta de Vicios</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="C:\Users\lukab\Desktop\joda\CSS\Estilos.css">
+    <link rel="stylesheet" href="../CSS/Ruleta.css">
+    <link rel="icon" type="image/x-icon" href="../ASSETS/ruleta.png">
 </head>
 
 <body class="relative">
-    <div class="fixed inset-0 z-0 opacity-20 pointer-events-none">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/23eefd65-b3a0-4947-b79b-064f580ea8e5.png"
-            alt="Patrón abstracto de líneas luminosas en tonos morados y rosados sobre fondo negro para ambiente de fiesta"
-            class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+            alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+            class="w-full h-full object-cover opacity-20 pointer-events-none" />
     </div>
-    <header>
-        <nav>
-            <ul class="">
-                <h1
-                    class="title-font text-5xl md:text-7xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 neon-text">
-                    RULETA DE VICIOS
-                </h1>
-                <li><a href="C:\Users\lukab\Desktop\joda\index.html" class="">Inicio</a></li>
-                <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Oraculo.html" class="">El oraculo del
-                        pedo</a></li>
-                <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Vaso.html" class="">El Vaso
-                        Del Destino</a></li>
-                <li><a href="C:\Users\lukab\Desktop\joda\PAGES\Conocete.html" class="">Conocete</a></li>
-                <li><a href="#" class="">Reglas</a></li>
-                <li><a href="#" class="">Contacto</a></li>
-
-                </p>
-                <div class=""></div>
-            </ul>
+    </div>
+    <header class="w-full p-4 bg-[#0f0a1a] shadow-md">
+        <div class="flex items-center justify-between flex-wrap">
+            <!-- Logo y nombre -->
+            <div class="flex gap-3">
+            <a href="./Ruleta.html" class="flex items-center gap-3">
+                <img src="../ASSETS/ruleta.png" alt="Logo" class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">La ruleta del vicio</h1>
+            </a>
+            </div>
+        </div>
+        <!-- Menú desktop -->
+        <nav class="md:flex ml-auto gap-6 text-lg font-medium">
+            <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+            <a href="./Lo_bancas.html" class="hover:text-[#00f5ff]">Lo bancas?</a>
+            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del pedo</a>
+            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+            <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decilo O Hacelo</a>
+            <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Reglas</a>
+            <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
         </nav>
     </header>
-    <main class="relative z-10 container mx-auto px-4 py-8 min-h-screen flex flex-col">
-        <section class="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 my-8">
+    <main class="relative z-10 container mx-auto px-4 py-8 min-h-screen flex flex-col relative z-10">
+        <section class="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 my-8 relative z-10">
             <div class="ruleta-container w-full md:w-1/2 max-w-xl" id="ruletaContainer">
                 <div class="ruleta relative w-full aspect-square rounded-full overflow-hidden border-8 border-white shadow-xl glow"
                     id="ruleta">
@@ -163,14 +165,14 @@
     </main>
 
 
-    <footer class="bg-gray-900 bg-opacity-50 backdrop-blur-sm border-t border-gray-800 py-6">
+    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
         <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
-            <p>¡Juega responsablemente y asegúrate de que todos lo estén pasando bien!</p>
-            <p class="mt-2">© 2023 Ruleta de Vicios - Todos los derechos reservados (o no)</p>
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
         </div>
     </footer>
 
-    <script src="C:\Users\lukab\Desktop\joda\JS\ruleta.js"></script>
+    <script src="..\JS\ruleta.js"></script>
 </body>
 
 </html>
