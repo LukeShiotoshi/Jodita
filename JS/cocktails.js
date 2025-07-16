@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const counterDiv = document.getElementById('drink-counter');
-  const btnFetch = document.getElementById('btnFetch');
+  const btnFetch = document.getElementById('cocktailBtn');
+
 
   // Actualiza la UI con datos que vienen de Firebase
   function actualizarContadoresUI(data) {
