@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           source: 'en',
           target: 'es',
           format: 'html',
-          api_key: ''
+          //api_key: ''
         })
       });
       if (!res.ok) throw new Error(res.statusText);
