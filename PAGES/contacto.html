@@ -7,6 +7,7 @@
   <title>Contacto - Jodita Loca</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    console.log('%c¡¿que haces maestro?! Encontraste el easter egg al menos,anda a jugar dale 🎉🕺💃', 'color: hotpink; font-size: 16px; font-weight: bold');
     tailwind.config = {
       theme: {
         extend: {
@@ -40,6 +41,7 @@
       <a href="./Ruleta.html" class="hover:text-neon transition-colors">Ruleta de Vicios</a>
       <a href="./Vaso.html" class="hover:text-neon transition-colors">El Vaso Del Destino</a>
       <a href="./Decilo.html" class="hover:text-neon transition-colors">Decílo o Hacelo</a>
+      <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
       <a href="./contacto.html" class="hover:text-neon transition-colors">Contacto</a>
     </nav>
     <!-- Botón hamburguesa -->
@@ -57,6 +59,7 @@
       <a href="./Ruleta.html" class="hover:text-neon">Ruleta de Vicios</a>
       <a href="./Vaso.html" class="hover:text-neon">El Vaso Del Destino</a>
       <a href="./Decilo.html" class="hover:text-neon">Decílo o Hacelo</a>
+      <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
       <a href="./contacto.html" class="hover:text-neon">Contacto</a>
     </div>
   </header>
@@ -64,7 +67,15 @@
   <!-- Main -->
   <main class="flex-grow flex items-center justify-center px-4 py-10 animate-[fadeUp_0.6s_ease-out]">
     <div class="bg-panel border-4 border-neon rounded-3xl shadow-neon p-10 max-w-lg w-full flex flex-col gap-6">
-      <h1 class="text-4xl text-center text-neon font-bold mb-8">Contacto</h1>
+      <h1 class="text-4xl text-center text-neon font-bold mb-8">Contacto<div
+          class="relative inline-block group cursor-pointer">
+          <span class="text-2xl z-10 relative">📧</span>
+          <span
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 pointer-events-none">
+            Solo los elegidos ven este mensaje. O los que pasan el mouse.
+          </span>
+        </div>
+      </h1>
 
       <form id="contactForm" action="https://formspree.io/f/mdkdoyqr" method="POST" class="flex flex-col gap-5">
         <input type="email" name="email" required maxlength="100" placeholder="Tu correo electrónico"
@@ -89,6 +100,57 @@
 
   <!-- Script -->
   <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Crear overlay
+  const overlay = document.createElement('div');
+  overlay.className = `
+    fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center
+    text-pink-500 text-2xl font-bold z-50 transition-opacity duration-500
+  `;
+  overlay.innerHTML = `
+    <div id="oracle-message" class="text-center px-6 mb-4">
+      ¿Querés hablar con el Oráculo?<br>
+      Está ocupado preparando un trago de vodka y no puede atenderte ahora. 🍷
+    </div>
+    <button id="skip-drama"
+      class="absolute bottom-6 text-sm text-pink-300 underline hover:text-pink-500 transition-colors">
+      Saltar drama
+    </button>
+  `;
+  document.body.appendChild(overlay);
+  overlay.classList.add('bg-gradient-to-br', 'from-purple-900', 'via-black', 'to-pink-900');
+
+  // Animación de explosión
+  const explode = (el) => {
+    el.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    el.style.transform = 'scale(1.5) rotate(20deg)';
+    el.style.opacity = '0';
+  };
+
+  // Cambiar el mensaje después de 3 segundos
+  setTimeout(() => {
+    const msg = document.getElementById('oracle-message');
+    explode(msg);
+    setTimeout(() => {
+      msg.innerHTML = `Era broma.<br>Contame tu drama 💅`;
+      msg.style.transform = 'scale(1) rotate(0deg)';
+      msg.style.opacity = '1';
+    }, 500);
+  }, 5000);
+
+  // Eliminar automáticamente después de 6 segundos
+  setTimeout(() => {
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.remove(), 500);
+  }, 6000);
+
+  // Saltear manualmente al hacer clic en el botón
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'skip-drama') {
+      overlay.remove();
+    }
+  });
+});
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
 

@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="..\CSS\Lo_bancas.css">
     <link rel="icon" type="image/x-icon" href="../ASSETS/bancas.png">
+    <link rel="stylesheet" href="../CSS/burger.css">
     <style>
 
     </style>
@@ -30,21 +31,48 @@
             </a>
         </div>
         <!-- Menú desktop -->
-        <nav id="" class="hidden md:flex ml-auto gap-6 text-lg font-medium">
-                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
-                <a href="./Lo_bancas.html" class="hover:text-[#00f5ff]">Lo bancas?</a>
-                <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del
-                    pedo</a>
-                <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
-                <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
-                <a href="#" class="text-white hover:text-[#00f5ff] transition-colors">Reglas</a>
-                <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
-            </nav>
+        <nav class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+            <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+            <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo bancas?</a>
+            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del pedo</a>
+            <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+            <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decílo o Hacelo</a>
+            <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+            <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+        </nav>
+        <!-- Botón hamburguesa -->
+        <!-- Botón hamburguesa -->
+        <button id="menuToggle" class="md:hidden text-neon z-50">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Menú móvil -->
+        <div id="mobileMenu"
+            class="hidden fixed top-0 left-0 w-full h-full bg-[#121012]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-xl text-white font-bold z-40 transition-opacity duration-300">
+
+            <a href="../index.html" class="text-white hover:text-[#ff00c8] transition-colors">Inicio</a>
+            <a href="./Lo_bancas.html" class="text-white hover:text-[#ff00c8] transition-colors">Lo bancas?</a>
+            <a href="./Oraculo.html" class="text-white hover:text-[#ff00c8] transition-colors">El oráculo del pedo</a>
+            <a href="./Ruleta.html" class="text-white hover:text-[#ff00c8] transition-colors">Ruleta de Vicios</a>
+            <a href="./Vaso.html" class="text-white hover:text-[#ff00c8] transition-colors">El Vaso Del Destino</a>
+            <a href="./Decilo.html" class="text-white hover:text-[#ff00c8] transition-colors">Decílo o Hacelo</a>
+            <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+            <a href="./contacto.html" class="text-white hover:text-[#ff00c8] transition-colors">Contacto</a>
+        </div>
     </header>
 
     <!-- Juego -->
     <main class="flex-grow p-6 flex flex-col items-center justify-center relative z-10">
-        <h2 class="text-3xl font-bold neon-text mb-4">Es un 10 pero...</h2>
+        <h2 class="text-3xl font-bold neon-text mb-4">Es un <div class="relative inline-block group cursor-pointer">
+                <span class="text-3xl z-10 relative">🔟</span>
+                <span
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-pink text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 pointer-events-none">
+                    Nota mental: limpiar tooltips antes de publicar.
+                </span>
+            </div> pero...</h2>
 
         <div id="dilema" class="text-xl text-center text-[#00f5ff] mb-6 px-6 max-w-xl">
             Hacé clic para empezar la joda...
@@ -100,6 +128,7 @@
 
     <!-- Script -->
     <script src="../JS/lo_bancas.js"></script>
+    <script src="../JS/burger.js"></script>
 </body>
 
 </html>
