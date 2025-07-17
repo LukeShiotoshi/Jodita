@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Oráculo del Pedo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../CSS/Oraculo.css">
+  <link rel="icon" href="../ASSETS/oraculo.png" type="image/png">
+</head>
+
+<body class="flex flex-col min-h-screen">
+  <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
+    <img
+      src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+      alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+      class="w-full h-full object-cover opacity-20 pointer-events-none" />
+  </div>
+  <header
+    class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-4 px-6 border-b border-purple-900 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="./Oraculo.html">
+          <img src="../ASSETS/oraculo.png" alt="Logo del Oráculo del Pedo"
+            class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
+        </a>
+        <a href="./Oraculo.html">
+          <h1 class="text-xl md:text-2xl font-bold neon-text neon-pink">El Oráculo del Pedo</h1>
+        </a>
+      </div>
+
+      <!-- Menú desktop -->
+      <nav id="desktopMenu" class="hidden md:flex gap-6 text-lg font-medium">
+        <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+        <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo bancas?</a>
+        <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del pedo</a>
+        <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+        <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+        <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decílo o Hacelo</a>
+        <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+        <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Botón hamburguesa -->
+      <button id="menuToggle" class="md:hidden text-neon z-50">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobileMenu"
+      class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-xl text-white font-bold z-[9999]">
+      <a href="../index.html" class="text-white hover:text-[#ff00c8] transition-colors">Inicio</a>
+      <a href="./Lo_bancas.html" class="text-white hover:text-[#ff00c8] transition-colors">Lo bancas?</a>
+      <a href="./Oraculo.html" class="text-white hover:text-[#ff00c8] transition-colors">El oráculo del pedo</a>
+      <a href="./Ruleta.html" class="text-white hover:text-[#ff00c8] transition-colors">Ruleta de Vicios</a>
+      <a href="./Vaso.html" class="text-white hover:text-[#ff00c8] transition-colors">El Vaso Del Destino</a>
+      <a href="./Decilo.html" class="text-white hover:text-[#ff00c8] transition-colors">Decílo o Hacelo</a>
+      <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+      <a href="./contacto.html" class="text-white hover:text-[#ff00c8] transition-colors">Contacto</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 px-4 flex-grow container mx-auto px-4 py-8 flex flex-col items-center relative z-10">
+    <section class="w-full max-w-3xl text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 neon-text neon-blue neon-effect">Modo Caos Total</h2>
+      <p class="text-lg md:text-xl text-gray-300 mb-8">El juego sólo termina cuando alguien se cae. Sin turnos.
+        Sin reglas. Solo caos.</p>
+
+      <div class="veredicto-container p-6 mb-8 neon-border neon-purple relative overflow-hidden">
+        <div class="absolute inset-0 bg-purple-900 opacity-10"></div>
+        <div id="veredicto"
+          class="veredicto-text text-xl md:text-2xl font-medium h-40 flex items-center justify-center">
+          Presiona el botón del Oráculo para comenzar...
+        </div>
+      </div>
+
+      <button id="oraculo-btn"
+        class="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-bold py-4 px-8 rounded-full text-xl uppercase tracking-wider shadow-lg neon-effect neon-pink">
+        Consultar al Oráculo
+      </button>
+    </section>
+
+    <section class="w-full max-w-3xl mt-8">
+      <h3 class="text-2xl font-bold mb-6 text-center neon-text neon-blue">Instrucciones</h3>
+      <ul class="grid md:grid-cols-2 gap-5 text-gray-300">
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-blue">
+          <span class="font-bold text-neon-blue">1.</span> Un jugador presiona el botón
+        </li>
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-purple">
+          <span class="font-bold text-neon-pink">2.</span> El Oráculo dictará su veredicto
+        </li>
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-purple">
+          <span class="font-bold text-neon-purple">3.</span> Todos deben obedecer inmediatamente
+        </li>
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-blue">
+          <span class="font-bold text-neon-blue">4.</span> No hay turnos, sigue quien quiera
+        </li>
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-blue">
+          <span class="font-bold text-neon-blue">5.</span> Diviértanse sin sofocarse
+        </li>
+        <li class="bg-black bg-opacity-30 p-4 rounded-lg neon-border neon-purple">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-neon-purple">6.</span>
+            <span>Y esto?</span>
+            <button id="useless-button"
+              class="ml-2 px-3 py-1 border-t-2 border-b-2 border-pink-500 text-pink-500 rounded hover:bg-purple-900 transition-all text-sm">
+              No me cliques
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
+    <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+      <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+      <p class="mt-2">Juega responsablemente y con moderación</p>
+    </div>
+  </footer>
+
+  <script src="../JS/oraculo.js"></script>
+  <script src="../JS/burger.js"></script>
+</body>
+
+</html>

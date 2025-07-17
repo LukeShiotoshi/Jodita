@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Jodita Loca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    console.log('%c¡¿que haces maestro?! Encontraste el easter egg al menos,anda a jugar dale 🎉🕺💃', 'color: hotpink; font-size: 16px; font-weight: bold');
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif']
+          },
+          colors: {
+            neon: '#ff00c8',
+            fondo: '#121012',
+            panel: '#1a1a26'
+          },
+          boxShadow: {
+            neon: '0 0 20px #ff00c8'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="../ASSETS/jodita.png" />
+  <link rel="stylesheet" href="../CSS/contacto.css" />
+</head>
+
+<body class="min-h-screen flex flex-col bg-fondo text-white font-orbitron">
+  <header class="w-full px-6 py-4 border-b-2 border-neon bg-panel shadow-neon flex items-center">
+    <img src="../ASSETS/jodita.png" alt="Cyber Joda Logo" class="w-12 h-12 mr-4" />
+    <h2 class="text-2xl font-bold text-neon">Jodita Loca</h2>
+    <nav class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+      <a href="./Lo_bancas.html" class="hover:text-neon transition-colors">Lo bancas?</a>
+      <a href="./Oraculo.html" class="hover:text-neon transition-colors">El oráculo del pedo</a>
+      <a href="./Ruleta.html" class="hover:text-neon transition-colors">Ruleta de Vicios</a>
+      <a href="./Vaso.html" class="hover:text-neon transition-colors">El Vaso Del Destino</a>
+      <a href="./Decilo.html" class="hover:text-neon transition-colors">Decílo o Hacelo</a>
+      <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+      <a href="./contacto.html" class="hover:text-neon transition-colors">Contacto</a>
+    </nav>
+    <!-- Botón hamburguesa -->
+    <button id="menuToggle" class="md:hidden text-neon z-50 gap-8">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Menú móvil -->
+    <div id="mobileMenu"
+      class="hidden fixed top-0 left-0 w-full h-full bg-[#1a1a26]/90 backdrop-blur-lg flex flex-col items-center justify-center gap-6 text-xl text-white font-bold z-40">
+      <a href="./Lo_bancas.html" class="hover:text-neon">Lo bancas?</a>
+      <a href="./Oraculo.html" class="hover:text-neon">El oráculo del pedo</a>
+      <a href="./Ruleta.html" class="hover:text-neon">Ruleta de Vicios</a>
+      <a href="./Vaso.html" class="hover:text-neon">El Vaso Del Destino</a>
+      <a href="./Decilo.html" class="hover:text-neon">Decílo o Hacelo</a>
+      <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
+      <a href="./contacto.html" class="hover:text-neon">Contacto</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center px-4 py-10 animate-[fadeUp_0.6s_ease-out]">
+    <div class="bg-panel border-4 border-neon rounded-3xl shadow-neon p-10 max-w-lg w-full flex flex-col gap-6">
+      <h1 class="text-4xl text-center text-neon font-bold mb-8">Contacto<div
+          class="relative inline-block group cursor-pointer">
+          <span class="text-2xl z-10 relative">📧</span>
+          <span
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 pointer-events-none">
+            Solo los elegidos ven este mensaje. O los que pasan el mouse.
+          </span>
+        </div>
+      </h1>
+
+      <form id="contactForm" action="https://formspree.io/f/mdkdoyqr" method="POST" class="flex flex-col gap-5">
+        <input type="email" name="email" required maxlength="100" placeholder="Tu correo electrónico"
+          class="p-4 rounded-xl bg-fondo border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-0 focus:border-neon" />
+        <textarea name="message" required maxlength="1000" rows="6" placeholder="Tu mensaje (máx. 1000 caracteres)"
+          class="p-4 rounded-xl bg-fondo border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-0 focus:border-neon"></textarea>
+        <button type="submit"
+          class="mx-auto w-40 bg-neon text-black font-bold py-2 rounded-xl hover:bg-pink-500 transition-colors shadow-lg">
+          Enviar
+        </button>
+      </form>
+
+      <p id="status" class="text-neon text-center mt-4 hidden font-semibold">¡Mensaje enviado!</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-panel border-t-2 border-neon py-6 text-center text-gray-400 text-sm shadow-neon">
+    <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+    <p class="mt-2">Juega responsablemente y con moderación</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Crear overlay
+  const overlay = document.createElement('div');
+  overlay.className = `
+    fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center
+    text-pink-500 text-2xl font-bold z-50 transition-opacity duration-500
+  `;
+  overlay.innerHTML = `
+    <div id="oracle-message" class="text-center px-6 mb-4">
+      ¿Querés hablar con el Oráculo?<br>
+      Está ocupado preparando un trago de vodka y no puede atenderte ahora. 🍷
+    </div>
+    <button id="skip-drama"
+      class="absolute bottom-6 text-sm text-pink-300 underline hover:text-pink-500 transition-colors">
+      Saltar drama
+    </button>
+  `;
+  document.body.appendChild(overlay);
+  overlay.classList.add('bg-gradient-to-br', 'from-purple-900', 'via-black', 'to-pink-900');
+
+  // Animación de explosión
+  const explode = (el) => {
+    el.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    el.style.transform = 'scale(1.5) rotate(20deg)';
+    el.style.opacity = '0';
+  };
+
+  // Cambiar el mensaje después de 3 segundos
+  setTimeout(() => {
+    const msg = document.getElementById('oracle-message');
+    explode(msg);
+    setTimeout(() => {
+      msg.innerHTML = `Era broma.<br>Contame tu drama 💅`;
+      msg.style.transform = 'scale(1) rotate(0deg)';
+      msg.style.opacity = '1';
+    }, 500);
+  }, 5000);
+
+  // Eliminar automáticamente después de 6 segundos
+  setTimeout(() => {
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.remove(), 500);
+  }, 6000);
+
+  // Saltear manualmente al hacer clic en el botón
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'skip-drama') {
+      overlay.remove();
+    }
+  });
+});
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      const mensaje = form.message.value.trim();
+
+      if (!email || !mensaje) return alert("Completá todos los campos");
+      if (mensaje.length > 1000) return alert("Mensaje demasiado largo");
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (res.ok) {
+          status.classList.remove("hidden");
+          form.reset();
+        } else {
+          alert("Hubo un error al enviar el mensaje");
+        }
+      } catch {
+        alert("Hubo un error al enviar el mensaje");
+      }
+    });
+  </script>
+  <script src="../JS/burger.js"></script>
+</body>
+
+</html>
