@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const counterDiv = document.getElementById('drink-counter');
+  const container = document.getElementById('cocktail-container'); // Asegurate que este exista
+  const btnFetch = document.getElementById('cocktailBtn'); // Id del botón
 
   // Actualiza la UI con datos que vienen de Firebase
   function actualizarContadoresUI(data) {
-    if (!data) {
-      counterDiv.innerHTML = '<p class="text-yellow-300">Nadie bancó ningún trago aún</p>';
-      return;
-    }
-    const textos = Object.entries(data).map(([key, val]) => {
-      // El key viene como "Mojito", "Adios-Amigos-Cocktail", etc.
-      const nombre = key.replace(/-/g, ' ');
-      return `${val} ${nombre}`;
-    });
-    counterDiv.innerHTML = `<p class="text-yellow-300 font-semibold">${textos.join(', ')}</p>`;
+    const texto = !data
+      ? '<p class="text-yellow-300">Nadie bancó ningún trago aún</p>'
+      : `<p class="text-yellow-300 font-semibold animate-fade-in">${Object.entries(data)
+        .map(([key, val]) => `${val} ${key.replace(/-/g, ' ')}`)
+        .join(', ')}</p>`;
+
+    counterDiv.querySelector('div').innerHTML = texto;
   }
 
   // Escuchamos cambios en los votos en Firebase en tiempo real
@@ -23,73 +22,53 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Función global para votar, que suma 1 en Firebase
-  window.vote = function(drinkName) {
+  window.vote = function (drinkName) {
     const key = drinkName.replace(/\s+/g, '-');
     const drinkRef = db.ref('counter/' + key);
     drinkRef.transaction(current => (current || 0) + 1);
   };
-});
 
-
-  // Mostrar contador al cargar la página
-  actualizarContadoresUI()
-async function traducirHTML(html) {
-  try {
-    const res = await fetch('https://libretranslate.com/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        q: html,
-        source: 'en',
-        target: 'es',
-        format: 'html',
-        api_key: ''
-      })
-    })
-    if (!res.ok) throw new Error(res.statusText)
-    const { translatedText } = await res.json()
-    return translatedText
-  } catch (e) {
-    console.warn('Fallo traducción HTML:', e)
-    return html
+  // Render botones para votar
+  function renderVotingButtons(name) {
+    const safeName = name.replace(/\s+/g, '-');
+    return `
+      <div class="mt-4 text-center">
+        <button onclick="vote('${name}')" class="bacnar-btn px-4 py-2 bg-yellow-300 text-purple-900 font-bold rounded transition">
+          Bancar este trago 🍹
+        </button>
+      </div>
+    `;
   }
-}
 
   // Evento para traer y mostrar cóctel
   btnFetch.addEventListener('click', async () => {
-    container.innerHTML = `<p class="text-gray-400">Cargando…</p>`
-    // No tocamos ni borramos el contador acá
+    container.innerHTML = `<p class="text-gray-400">Cargando…</p>`;
 
     try {
-      const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-      if (!res.ok) throw new Error('CocktailDB ' + res.status)
-      const { drinks } = await res.json()
-      const drink = drinks[0]
+      const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+      if (!res.ok) throw new Error('CocktailDB ' + res.status);
+      const { drinks } = await res.json();
+      const drink = drinks[0];
 
-      // Ingredientes crudos
-      const rawIngr = []
+      const rawIngr = [];
       for (let i = 1; i <= 15; i++) {
-        const ing = drink[`strIngredient${i}`]
-        const meas = drink[`strMeasure${i}`] || ''
-        if (ing) rawIngr.push(`${meas.trim()} ${ing.trim()}`)
+        const ing = drink[`strIngredient${i}`];
+        const meas = drink[`strMeasure${i}`] || '';
+        if (ing) rawIngr.push(`${meas.trim()} ${ing.trim()}`);
       }
 
-      // HTML para traducir
-      const ingrHTML = `<ul>${rawIngr.map(i => `<li>${i}</li>`).join('')}</ul>`
-      const prepHTML = `<p>${drink.strInstructions}</p>`
+      const ingrHTML = `<ul class="fade-slide-in">${rawIngr.map(i => `<li>${i}</li>`).join('')}</ul>`;
+      const prepHTML = `<p class="fade-slide-in">${drink.strInstructions}</p>`;
+      const ingrESHTML = ingrHTML;
+      const prepESHTML = prepHTML;
 
-      // Traducción
-      const [ingrESHTML, prepESHTML] = await Promise.all([
-        traducirHTML(ingrHTML),
-        traducirHTML(prepHTML)
-      ])
 
-      // Bandera y fondo
       const countryFlags = {
         USA: '🇺🇸', UK: '🇬🇧', Canada: '🇨🇦', Mexico: '🇲🇽',
         France: '🇫🇷', Italy: '🇮🇹', Spain: '🇪🇸', Argentina: '🇦🇷',
         Brazil: '🇧🇷', Germany: '🇩🇪', Japan: '🇯🇵'
-      }
+      };
+
       const drinkBackgrounds = {
         Vodka: 'bg-gradient-to-r from-purple-900 via-pink-700 to-purple-900',
         Rum: 'bg-gradient-to-r from-yellow-800 via-red-700 to-yellow-800',
@@ -97,19 +76,20 @@ async function traducirHTML(html) {
         Whiskey: 'bg-gradient-to-r from-orange-800 via-amber-600 to-orange-800',
         Gin: 'bg-gradient-to-r from-blue-800 via-cyan-600 to-blue-800',
         Beer: 'bg-gradient-to-r from-yellow-600 via-orange-400 to-yellow-600'
-      }
-      const area = drink.strArea || 'Desconocido'
-      const flag = countryFlags[area] || '🌍'
-      const main = rawIngr[0]?.toLowerCase() || ''
-      let bgClass = 'bg-black bg-opacity-60'
+      };
+
+      const area = drink.strArea || 'Desconocido';
+      const flag = countryFlags[area] || '🌍';
+      const main = rawIngr[0]?.toLowerCase() || '';
+      let bgClass = 'bg-black bg-opacity-60';
+
       for (const key in drinkBackgrounds) {
         if (main.includes(key.toLowerCase())) {
-          bgClass = drinkBackgrounds[key]
-          break
+          bgClass = drinkBackgrounds[key];
+          break;
         }
       }
 
-      // Render final
       container.innerHTML = `
         <div class="${bgClass} border-2 border-[#00f5ff] rounded-xl p-6 shadow-lg text-white">
           <h3 class="text-2xl neon-text mb-2">${drink.strDrink} ${flag}</h3>
@@ -120,9 +100,10 @@ async function traducirHTML(html) {
           <h4 class="text-[#00f5ff] text-xl mb-2">Preparación:</h4>
           ${prepESHTML}
           ${renderVotingButtons(drink.strDrink)}
-        </div>`
+        </div>`;
     } catch (err) {
-      console.error('Error completo:', err)
-      container.innerHTML = `<p class="text-red-500">Error al cargar el trago. Probá de nuevo.</p>`
+      console.error('Error completo:', err);
+      container.innerHTML = `<p class="text-red-500">Error al cargar el trago. Probá de nuevo.</p>`;
     }
-  })
+  });
+});
