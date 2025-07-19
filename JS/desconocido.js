@@ -175,9 +175,12 @@ function addPlayer() {
 }
 
 // 🎬 ACTO 2 — Comenzar juego
+
 function startGame() {
   const roundSelect = document.getElementById('round-count');
-  gameState.maxRounds = parseInt(roundSelect.value);
+  const selectedRounds = parseInt(roundSelect.value);
+
+  gameState.maxRounds = selectedRounds * gameState.players.length;
 
   document.getElementById('start-screen').classList.add('hidden');
   document.getElementById('game-screen').classList.remove('hidden');
@@ -187,9 +190,12 @@ function startGame() {
 // 🔄 ACTO 3 — Actualizar puntajes y ronda
 function updateGameInfo() {
   document.getElementById('current-round').textContent = gameState.round;
+
+  const currentPlayerName = gameState.players[gameState.currentPlayerIndex];
+  document.getElementById('current-player').textContent = `Turno de: ${currentPlayerName}`;
+
   updatePointsBoard();
 }
-
 function updatePointsBoard() {
   const list = document.getElementById('points-list');
   list.innerHTML = '';

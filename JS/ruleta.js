@@ -215,12 +215,10 @@ const categories = [
         ]
     }
 ];
-
-
-
 let isSpinning = false;
 let currentRotation = 0;
 let idleTimer;
+
 document.addEventListener('mousemove', resetIdle);
 document.addEventListener('keydown', resetIdle);
 
@@ -230,101 +228,160 @@ function resetIdle() {
     showToast('¿Estás pensando o simplemente disfrutando el silencio?');
   }, 15000);
 }
+
+function getNeonColor(name) {
+  const tones = {
+    "Sexo": "#ff3366",
+    "Vicios": "#ff9900",
+    "Asquerosos": "#33ff66",
+    "Colectivos": "#33ccff",
+    "Desafíos": "#cc33ff",
+    "Anécdotas": "#ffff33"
+  };
+  return tones[name] || "#ffffff";
+}
+
+
 function initRuleta() {
-    const ruleta = document.getElementById('ruleta');
-    const container = ruleta.parentElement;
-    const segmentAngle = 360 / categories.length;
-    const gradientStops = categories.map((cat, i) => {
-        const start = i * segmentAngle;
-        const end = (i + 1) * segmentAngle;
-        return `${cat.color[0]} ${start}deg ${end}deg`;
-    }).join(',');
-    ruleta.style.background = `conic-gradient(${gradientStops})`;
-    ruleta.innerHTML = '';
-    ruleta.style.position = 'relative';
-    const radius = ruleta.offsetWidth / 2;
-    categories.forEach((cat, i) => {
-        const label = document.createElement('div');
-        label.className = 'label';
-        label.textContent = cat.name;
-        const angle = i * segmentAngle + segmentAngle / 2;
-        Object.assign(label.style, {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transformOrigin: '0 0',
-            transform: `rotate(${angle}deg) translate(${radius * 0.6}px)`,
-            color: '#fff',
-            textAlign: 'center',
-            fontWeight: 'bold',
-            fontSize: '14px',
-            textShadow: '1px 1px 2px black'
-        });
-        ruleta.appendChild(label);
+  const ruleta = document.getElementById('ruleta');
+  const container = ruleta.parentElement;
+  const segmentAngle = 360 / categories.length;
+  const gradientStops = categories.map((cat, i) => {
+    const start = i * segmentAngle;
+    const end = (i + 1) * segmentAngle;
+    return `${cat.color[0]} ${start}deg ${end}deg`;
+  }).join(',');
+document.querySelectorAll('.active-neon-border').forEach(el => el.remove());
+  ruleta.style.background = `conic-gradient(from 0deg, ${gradientStops})`;
+  ruleta.innerHTML = '';
+  ruleta.style.position = 'relative';
+
+  const radius = ruleta.offsetWidth / 2;
+
+  categories.forEach((cat, i) => {
+    const label = document.createElement('div');
+    label.className = 'label';
+    label.textContent = cat.name;
+
+    const angle = i * segmentAngle + segmentAngle / 2 - 90;
+
+    Object.assign(label.style, {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transformOrigin: '0 0',
+      transform: `rotate(${angle}deg) translate(${radius * 0.6}px)`,
+      color: '#fff',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: '14px',
+      textShadow: '1px 1px 2px black'
     });
-    let selector = document.getElementById('selector');
-    if (!selector) {
-        selector = document.createElement('div');
-        selector.id = 'selector';
-        Object.assign(selector.style, {
-            position: 'absolute',
-            top: '0',
-            left: '50%',
-            transform: 'translate(-50%, -100%) rotate(180deg)',
-            width: '0',
-            height: '0',
-            borderLeft: '10px solid transparent',
-            borderRight: '10px solid transparent',
-            borderBottom: '20px solid #fff',
-            outline: '1px solid #000'
-        });
-        container.style.position = 'relative';
-        container.appendChild(selector);
-    }
+
+    ruleta.appendChild(label);
+  });
+
+  let selector = document.getElementById('selector');
+  if (!selector) {
+    selector = document.createElement('div');
+    selector.id = 'selector';
+
+    Object.assign(selector.style, {
+      position: 'absolute',
+      top: '0',
+      left: '50%',
+      transform: 'translate(-50%, -100%) rotate(180deg)',
+      width: '0',
+      height: '0',
+      borderLeft: '10px solid transparent',
+      borderRight: '10px solid transparent',
+      borderBottom: '20px solid #fff',
+      outline: '1px solid #000'
+    });
+
+    container.style.position = 'relative';
+    container.appendChild(selector);
+  }
 }
 
 function spinRuleta() {
-    if (isSpinning) return;
-    isSpinning = true;
-    document.getElementById('spinButton').disabled = true;
-    const ruleta = document.getElementById('ruleta');
-    const spinDuration = 2500;
-    const extraRotations = 5;
-    const randomAngle = Math.floor(Math.random() * 360);
-    const rotationAmount = extraRotations * 360 + randomAngle;
+  if (isSpinning) return;
+  isSpinning = true;
+  document.getElementById('spinButton').disabled = true;
+  const ruleta = document.getElementById('ruleta');
+  const spinDuration = 2500;
+  const extraRotations = 5;
+  const randomAngle = Math.floor(Math.random() * 360);
+  const rotationAmount = extraRotations * 360 + randomAngle;
+  currentRotation += rotationAmount;
+  ruleta.style.transition = `transform ${spinDuration}ms linear`;
+  ruleta.style.transform = `rotateZ(${currentRotation + 90}deg)`;
 
-    currentRotation += rotationAmount; // acumulamos siempre hacia adelante
-
-    ruleta.style.transition = `transform ${spinDuration}ms linear`;
-    ruleta.style.transform = `rotateZ(${currentRotation}deg)`;
-
-    setTimeout(() => {
-        isSpinning = false;
-        document.getElementById('spinButton').disabled = false;
-        const finalAngle = currentRotation % 360;
-        const segmentAngle = 360 / categories.length;
-        const normalized = (360 - finalAngle + segmentAngle / 2) % 360;
-        const selectedIndex = Math.floor(normalized / segmentAngle);
-        const selectedCategory = categories[selectedIndex];
-        const randomChallengeIndex = Math.floor(Math.random() * selectedCategory.challenges.length);
-        displayResult(selectedCategory, selectedCategory.challenges[randomChallengeIndex]);
-        ruleta.style.transition = '';
-    }, spinDuration);
+  setTimeout(() => {
+    isSpinning = false;
+    document.getElementById('spinButton').disabled = false;
+    const finalAngle = (currentRotation + 90) % 360;
+    const normalized = (360 - finalAngle) % 360;
+    const segmentAngle = 360 / categories.length;
+    const selectedIndex = Math.floor(normalized / segmentAngle);
+    const selectedCategory = categories[selectedIndex];
+    const randomChallengeIndex = Math.floor(Math.random() * selectedCategory.challenges.length);
+    displayResult(selectedCategory, selectedCategory.challenges[randomChallengeIndex]);
+    ruleta.style.transition = '';
+  }, spinDuration);
 }
 
+function getCategoryAnimation(name) {
+  const animations = {
+    "Sexo": "animate-pulse",
+    "Vicios": "animate-shake",
+    "Asquerosos": "animate-squeeze",
+    "Colectivos": "animate-spring",
+    "Desafíos": "animate-bounce",
+    "Anécdotas": "animate-fadein"
+  };
+  return animations[name] || "animate-pop";
+}
+
+let lastChallenge = null;
+
 function displayResult(category, challenge) {
-    const resultDisplay = document.getElementById('resultDisplay');
-    resultDisplay.innerHTML = `
-        <div class="text-center w-full">
-            <div class="text-lg md:text-xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[${category.color[0]}] to-[${category.color[1]}]">${category.name}</div>
-            <div class="text-xl md:text-2xl font-bold mb-6 px-4">"${challenge}"</div>
-            <div class="flex justify-center">
-                <div class="w-16 h-1 rounded-full bg-gradient-to-r from-[${category.color[0]}] to-[${category.color[1]}]"></div>
-            </div>
+  const resultDisplay = document.getElementById('resultDisplay');
+  let extra = "";
+
+  if (challenge === lastChallenge) {
+    extra = `<div class="mt-4 text-sm text-yellow-400 italic">La ruleta se repite... ¿señal divina?</div>`;
+  }
+
+  lastChallenge = challenge;
+
+  resultDisplay.innerHTML = `
+    <div class="text-center w-full ${getCategoryAnimation(category.name)}">
+      <div class="text-lg md:text-xl mb-4 text-transparent bg-clip-text"
+           style="background-image: linear-gradient(to right, ${category.color[0]}, ${category.color[1]});">
+        ${category.name}
+      </div>
+      <div class="text-xl md:text-2xl font-bold mb-6 px-4">
+        "${challenge}"
+      </div>
+      <div class="flex justify-center">
+        <div class="w-16 h-1 rounded-full"
+             style="background-image: linear-gradient(to right, ${category.color[0]}, ${category.color[1]});">
         </div>
-    `;
-    resultDisplay.classList.add('transform', 'scale-110');
-    setTimeout(() => resultDisplay.classList.remove('transform', 'scale-110'), 300);
+      </div>
+      ${extra}
+    </div>
+  `;
+
+  resultDisplay.classList.add('transform', 'scale-110');
+  setTimeout(() => resultDisplay.classList.remove('transform', 'scale-110'), 300);
+}
+
+function checkCategoryExhaustion(category) {
+  if (!category.challenges.length) {
+    document.getElementById('ruleta').style.background = 'conic-gradient(from -90deg, gold 0deg 360deg)';
+    showToast("¡La categoría se agotó! Se invoca el modo legendario.");
+  }
 }
 
 document.getElementById('spinButton').addEventListener('click', spinRuleta);
