@@ -21,23 +21,6 @@
             box-shadow: 0 0 15px #0ff;
         }
 
-        .main-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            background: linear-gradient(90deg, var(--dark-gray), var(--dark-bg));
-            border-bottom: 2px solid var(--neon-violet);
-            box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
-        }
-
-        .header-title {
-            font-size: 1.8rem;
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
-            letter-spacing: 1px;
-        }
-
         .nav-container {
             display: flex;
             gap: 1.5rem;
@@ -78,6 +61,35 @@
             box-shadow: 0 0 15px rgba(157, 78, 221, 0.2);
         }
 
+        .main-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, var(--dark-gray), var(--dark-bg));
+            border-bottom: 2px solid var(--neon-violet);
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--neon-pink);
+        }
+
         .nav-link::before {
             content: '';
             position: absolute;
@@ -94,8 +106,8 @@
         }
 
         .logo-img {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             border: 2px solid (--neon-blue);
             margin-right: 1.5rem;
             object-fit: cover;
@@ -113,20 +125,19 @@
 
 <body class="text-white">
 
-    <header class="w-full p-4 bg-[#0f0a1a] shadow-md">
-        <div class="flex items-center justify-between flex-wrap">
-            <img src="../ASSETS/jodita.png" alt="Cyber Joda Logo" class="logo-img">
-            <h2 class="header-title neon-text">Jodita Loca</h2>
-            </a>
-        </div>
-        <!-- Menú desktop -->
+    <header class="main-header">
+        <img src="../ASSETS/jodita.png" alt="Cyber Joda Logo" class="logo-img">
+        <h2 class="header-title neon-text">Jodita Loca</h2>
         <nav class="hidden md:flex ml-auto gap-6 text-lg font-medium">
             <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
             <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo bancas?</a>
-            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del pedo</a>
+            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del
+                pedo</a>
             <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
-            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
+            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del
+                Destino</a>
             <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decílo o Hacelo</a>
+            <a href="./desconocido.html" class="text-white hover:text-[#00f5ff] transition-colors">Desconocido</a>
             <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
             <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
         </nav>
@@ -142,13 +153,17 @@
             class="hidden fixed top-0 left-0 w-full h-full bg-[#121012]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-xl text-white font-bold z-40 transition-opacity duration-300">
 
             <a href="../index.html" class="text-white hover:text-[#ff00c8] transition-colors">Inicio</a>
-            <a href="./Lo_bancas.html" class="text-white hover:text-[#ff00c8] transition-colors">Lo bancas?</a>
-            <a href="./Oraculo.html" class="text-white hover:text-[#ff00c8] transition-colors">El oráculo del pedo</a>
-            <a href="./Ruleta.html" class="text-white hover:text-[#ff00c8] transition-colors">Ruleta de Vicios</a>
-            <a href="./Vaso.html" class="text-white hover:text-[#ff00c8] transition-colors">El Vaso Del Destino</a>
-            <a href="./Decilo.html" class="text-white hover:text-[#ff00c8] transition-colors">Decílo o Hacelo</a>
+            <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo bancas?</a>
+            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del
+                pedo</a>
+            <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
+            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del
+                Destino</a>
+            <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decílo o Hacelo</a>
+            <a href="./desconocido.html" class="text-white hover:text-[#00f5ff] transition-colors">Desconocido</a>
             <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
-            <a href="./contacto.html" class="text-white hover:text-[#ff00c8] transition-colors">Contacto</a>
+            <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+            </nav>
         </div>
     </header>
     <section class="text-center py-10">

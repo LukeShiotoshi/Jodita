@@ -12,7 +12,24 @@
 * {
     box-sizing: border-box;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.logo span {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+}
 body {
     margin: 0;
     padding-top: 70px; /* espacio para header fijo */
