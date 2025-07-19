@@ -1,5 +1,22 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+.dancer {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dancer:hover {
+  animation: danceMoves 0.8s infinite ease-in-out;
+}
+
+@keyframes danceMoves {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-10px) rotate(10deg); }
+  50%  { transform: translateY(0) rotate(-10deg); }
+  75%  { transform: translateY(10px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
  /* Reset básico */
  * {
    margin: 0;
@@ -38,11 +55,11 @@
    color: var(--neon-pink);
  }
 
-@media (max-width: 768px) {
-  .carousel-controls {
-    display: none !important;
-  }
-}
+ @media (max-width: 768px) {
+   .carousel-controls {
+     display: none !important;
+   }
+ }
 
 
  .nav-link::before {

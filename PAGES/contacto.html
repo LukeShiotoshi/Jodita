@@ -32,10 +32,13 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-fondo text-white font-orbitron">
-  <header class="w-full px-6 py-4 border-b-2 border-neon bg-panel shadow-neon flex items-center">
-    <img src="../ASSETS/jodita.png" alt="Cyber Joda Logo" class="w-12 h-12 mr-4" />
-    <h2 class="text-2xl font-bold text-neon">Jodita Loca</h2>
+  <header class="main-header">
+    <div class="flex items-center justify-between flex-wrap">
+      <img src="../ASSETS/jodita.png" alt="Cyber Joda Logo" class="w-12 h-12 mr-4" />
+      <h2 class="text-2xl font-bold text-neon">Jodita Loca</h2>
+    </div>
     <nav class="hidden md:flex ml-auto gap-6 text-lg font-medium">
+      <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
       <a href="./Lo_bancas.html" class="hover:text-neon transition-colors">Lo bancas?</a>
       <a href="./Oraculo.html" class="hover:text-neon transition-colors">El oráculo del pedo</a>
       <a href="./Ruleta.html" class="hover:text-neon transition-colors">Ruleta de Vicios</a>
@@ -45,7 +48,7 @@
       <a href="./contacto.html" class="hover:text-neon transition-colors">Contacto</a>
     </nav>
     <!-- Botón hamburguesa -->
-    <button id="menuToggle" class="md:hidden text-neon z-50 gap-8">
+    <button id="menuToggle" class="md:hidden text-neon z-50 ml-auto">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -54,6 +57,7 @@
     <!-- Menú móvil -->
     <div id="mobileMenu"
       class="hidden fixed top-0 left-0 w-full h-full bg-[#1a1a26]/90 backdrop-blur-lg flex flex-col items-center justify-center gap-6 text-xl text-white font-bold z-40">
+      <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
       <a href="./Lo_bancas.html" class="hover:text-neon">Lo bancas?</a>
       <a href="./Oraculo.html" class="hover:text-neon">El oráculo del pedo</a>
       <a href="./Ruleta.html" class="hover:text-neon">Ruleta de Vicios</a>
@@ -72,7 +76,7 @@
           <span class="text-2xl z-10 relative">📧</span>
           <span
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 pointer-events-none">
-            Solo los elegidos ven este mensaje. O los que pasan el mouse.
+            Solo los elegidos ven este mensaje.<br> O los que pasan el mouse.
           </span>
         </div>
       </h1>
@@ -100,57 +104,76 @@
 
   <!-- Script -->
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Crear overlay
-  const overlay = document.createElement('div');
-  overlay.className = `
-    fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center
-    text-pink-500 text-2xl font-bold z-50 transition-opacity duration-500
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.createElement("div");
+      overlay.className = `
+    fixed inset-0 flex flex-col items-center justify-center text-pink-500 text-2xl font-bold z-50
+    bg-gradient-to-br from-purple-900 via-black to-pink-900
   `;
-  overlay.innerHTML = `
-    <div id="oracle-message" class="text-center px-6 mb-4">
-      ¿Querés hablar con el Oráculo?<br>
-      Está ocupado preparando un trago de vodka y no puede atenderte ahora. 🍷
-    </div>
-    <button id="skip-drama"
-      class="absolute bottom-6 text-sm text-pink-300 underline hover:text-pink-500 transition-colors">
-      Saltar drama
-    </button>
+      document.body.appendChild(overlay);
+
+      const box = document.createElement("div");
+      box.className = "text-center px-6 mb-4";
+      overlay.appendChild(box);
+
+      const skipBtn = document.createElement("button");
+      skipBtn.id = "skip-drama";
+      skipBtn.textContent = "Saltar drama";
+      skipBtn.className = `
+    absolute bottom-6 text-sm text-pink-300 underline hover:text-pink-500 transition-colors
   `;
-  document.body.appendChild(overlay);
-  overlay.classList.add('bg-gradient-to-br', 'from-purple-900', 'via-black', 'to-pink-900');
+      overlay.appendChild(skipBtn);
 
-  // Animación de explosión
-  const explode = (el) => {
-    el.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-    el.style.transform = 'scale(1.5) rotate(20deg)';
-    el.style.opacity = '0';
-  };
+      // 🎟️ Pregunta
+      const pregunta = document.createElement("div");
+      pregunta.textContent = "¿Querés hablar con el Oráculo?";
+      pregunta.className = "epic-in mb-2";
+      box.appendChild(pregunta);
 
-  // Cambiar el mensaje después de 3 segundos
-  setTimeout(() => {
-    const msg = document.getElementById('oracle-message');
-    explode(msg);
-    setTimeout(() => {
-      msg.innerHTML = `Era broma.<br>Contame tu drama 💅`;
-      msg.style.transform = 'scale(1) rotate(0deg)';
-      msg.style.opacity = '1';
-    }, 500);
-  }, 5000);
+      // 🍸 Respuesta
+      setTimeout(() => {
+        const respuesta = document.createElement("div");
+        respuesta.textContent = "Está ocupado preparando un trago de vodka… 🍷";
+        respuesta.className = "epic-in mb-2";
+        box.appendChild(respuesta);
+      }, 1500);
 
-  // Eliminar automáticamente después de 6 segundos
-  setTimeout(() => {
-    overlay.style.opacity = '0';
-    setTimeout(() => overlay.remove(), 500);
-  }, 6000);
+      // 💨 Escape visual con líneas de velocidad tipo anime
+      setTimeout(() => {
 
-  // Saltear manualmente al hacer clic en el botón
-  document.addEventListener('click', (e) => {
-    if (e.target.id === 'skip-drama') {
-      overlay.remove();
-    }
-  });
-});
+        pregunta.classList.add("escape");
+        box.lastChild.classList.add("escape");
+
+        // Crear líneas diagonales de velocidad
+        for (let i = 0; i < 6; i++) {
+          const line = document.createElement("div");
+          line.className = "speed-line";
+          line.style.top = `${30 + i * 8}%`;
+          line.style.left = "100%";
+          overlay.appendChild(line);
+        }
+      }, 5500);
+
+      // 💅 Frase final que salta desde la derecha
+      setTimeout(() => {
+        box.innerHTML = "";
+        const final = document.createElement("div");
+        final.innerHTML = "Era broma.<br>Contame tu drama 💅";
+        final.className = "jump-in";
+        box.appendChild(final);
+      }, 6100);
+
+      // 🕒 Cierre
+      setTimeout(() => {
+        overlay.style.opacity = "0";
+        setTimeout(() => overlay.remove(), 600);
+      }, 9500);
+
+      // 🧨 Salto manual
+      document.addEventListener("click", (e) => {
+        if (e.target.id === "skip-drama") overlay.remove();
+      });
+    });
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
 

@@ -220,7 +220,16 @@ const categories = [
 
 let isSpinning = false;
 let currentRotation = 0;
+let idleTimer;
+document.addEventListener('mousemove', resetIdle);
+document.addEventListener('keydown', resetIdle);
 
+function resetIdle() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    showToast('¿Estás pensando o simplemente disfrutando el silencio?');
+  }, 15000);
+}
 function initRuleta() {
     const ruleta = document.getElementById('ruleta');
     const container = ruleta.parentElement;

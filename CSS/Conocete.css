@@ -11,25 +11,91 @@
     --button-hover: #00e5e5;
 }
 
+@keyframes emoji-drop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(100vh) scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(0.8) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes thunder-drop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(100vh) scale(1.4) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(0.9) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.animate-emoji-drop {
+  animation: emoji-drop 1s ease-in forwards;
+}
+
+.animate-thunder-drop {
+  animation: thunder-drop 1s ease-in forwards;
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.animate-fade {
+    animation: fade 4s ease-in-out forwards;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: 'Poppins', sans-serif;
     background: var(--dark-bg);
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
-    padding-top: 70px; /* para el header fijo */
+    padding-top: 70px;
+    /* para el header fijo */
 }
 
 /* HEADER y NAV */
 header {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 70px;
     background: rgba(10, 6, 15, 0.95);
     border-bottom: 2px solid var(--neon-purple);
@@ -70,17 +136,25 @@ header nav ul li a:hover {
     border: 1px solid var(--accent);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 0 15px rgba(57,255,20,0.3);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
     animation: fadeIn .5s ease-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* TITULOS */
-h1, h2 {
+h1,
+h2 {
     font-weight: 700;
 }
 
@@ -99,7 +173,7 @@ input[type="text"],
 input[type="number"] {
     width: 100%;
     padding: .5rem;
-    background: rgba(30,30,30,0.8);
+    background: rgba(30, 30, 30, 0.8);
     border: 1px solid var(--neon-purple);
     border-radius: .5rem;
     color: white;
@@ -156,11 +230,11 @@ input::placeholder {
 
 /* CHALLENGE CARD */
 .challenge-card {
-    background: rgba(18,18,18,0.95);
+    background: rgba(18, 18, 18, 0.95);
     border: 1px solid var(--accent);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 0 15px rgba(57,255,20,0.3);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -206,7 +280,7 @@ input::placeholder {
 
 /* VIDRIADO (opcional) */
 .glass-container {
-    background: rgba(15,10,26,0.8);
+    background: rgba(15, 10, 26, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 1rem;
     padding: 1rem;
