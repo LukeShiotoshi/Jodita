@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apurate o Perdé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/apurate.css">
+    
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 w-full bg-[#0f0a1a] shadow-md z-50">
+        <div class="flex items-center justify-between p-4">
+            <!-- Logo grande -->
+            <div class="flex items-center gap-3">
+                <img src="../ASSETS/decilo.png" alt="Logo"
+                    class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">apurate o perde</h1>
+            </div>
+
+            <!-- Nav Desktop -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
+                <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+            </div>
+
+            <!-- Botón hamburguesa Mobile -->
+            <button id="menuToggle" class="md:hidden text-neon">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Panel Juegos Desktop / Mobile -->
+        <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto auto-rows-fr">
+    <a href="../index.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Inicio</a>
+    <a href="./Lo_bancas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo bancas?</a>
+    <a href="./Oraculo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El oráculo del pedo</a>
+    <a href="./Ruleta.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta de Vicios</a>
+    <a href="./Vaso.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El Vaso Del Destino</a>
+    <a href="./Decilo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo o Hacelo</a>
+    <a href="./desconocido.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Desconocido</a>
+    <a href="./apurate.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate o Perde</a>
+    <a href="./tablero.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Tablero Vil</a>
+    <a href="./boomerang.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang Maldito</a>
+    <a href="./interrogatorio.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El interrogatorio</a>
+    <a href="./pueblo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La Voz Del Pueblo</a>
+    <a href="./reglas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Reglas</a>
+    <a href="./contacto.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Contacto</a>
+
+  </div>
+  <div class="mt-6 flex justify-center">
+    <button id="closePanel" class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
+  </div>
+</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 container mx-auto px-4 py-8 flex flex-col items-center justify-center">
+        <!-- Player Turn Indicator -->
+        <div class="mb-8 text-center">
+            <div class="text-xl neon-text mb-2" style="color: var(--neon-blue);" id="playerTurn">
+                Esperando jugadores...
+            </div>
+            <div class="flex justify-center space-x-4">
+                <div class="px-4 py-2 neon-border rounded-lg" style="color: var(--neon-green);">
+                    Puntos: <span id="playerScore">0</span>
+                </div>
+                <div class="px-4 py-2 neon-border rounded-lg" style="color: var(--neon-purple);">
+                    Ronda: <span id="currentRound">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="relative w-32 h-32 mb-8">
+            <svg class="w-full h-full progress-ring" viewBox="0 0 100 100">
+                <circle class="progress-ring__circle" stroke="url(#gradient)" stroke-width="8" fill="transparent" r="45"
+                    cx="50" cy="50" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-3xl font-bold neon-text" id="timer" style="color: var(--neon-pink);">15</span>
+            </div>
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff00ff" />
+                    <stop offset="100%" stop-color="#00ffff" />
+                </linearGradient>
+            </defs>
+        </div>
+
+        <!-- Card Container -->
+        <div class="relative w-full max-w-md h-30 mb-8">
+            <div class="card w-full h-full" id="gameCard">
+                <!-- Rules Card (Initial State) -->
+                <div class="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900 rounded-xl p-6 flex flex-col justify-center neon-border fade-in"
+                    style="color: var(--neon-blue);" id="rulesCard">
+                    <h2 class="text-2xl font-bold text-center mb-4 neon-glow">¡Bienvenido a Apurate o Perdé!</h2>
+                    <ul class="space-y-2 text-sm mb-4">
+                        <li>• Tienes 15 segundos para completar cada desafío</li>
+                        <li>• Desliza a la derecha ✅ si completaste el desafío</li>
+                        <li>• Desliza a la izquierda ❌ si no pudiste completarlo</li>
+                        <li>• Si el tiempo se acaba, pierdes un punto</li>
+                        <li>• ¡Diviértete y apúrate!</li>
+                    </ul>
+                    <button onclick="startGameFromRules()"
+                        class="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg font-bold hover:scale-105 transition-transform mx-auto">
+                        Comenzar Juego
+                    </button>
+                </div>
+
+                <!-- Challenge Card (Hidden Initially) -->
+                <div class="w-full h-full bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl p-6 flex flex-col items-center justify-center neon-border hidden"
+                    style="color: var(--neon-pink);" id="challengeCard">
+                    <div class="text-3xl font-bold text-center neon-glow mb-4" id="challengeText">
+                        ¡Desafío!
+                    </div>
+                    <p class="text-center text-lg">Desliza para responder</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex space-x-8 mb-8">
+            <button onclick="handleSwipeAction('left')"
+                class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center neon-border hover:scale-110 transition-transform"
+                style="color: #ff0000;">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <button onclick="handleSwipeAction('right')"
+                class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center neon-border hover:scale-110 transition-transform"
+                style="color: #00ff00;">
+                <i class="fas fa-check text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Players List -->
+        <div class="w-full max-w-md" id="playersSection">
+            <h3 class="text-xl font-bold mb-4 neon-text text-center" style="color: var(--neon-green);">Jugadores</h3>
+            <div class="grid grid-cols-2 gap-4 mb-4" id="playersList">
+                <!-- Players will be added here dynamically -->
+            </div>
+            <div class="flex space-x-4">
+                <input type="text" id="newPlayer" placeholder="Nombre del jugador"
+                    class="flex-1 px-4 py-2 bg-black/50 border border-neon-blue rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-blue"
+                    onkeypress="if(event.key === 'Enter') addPlayer()">
+                <button onclick="addPlayer()"
+                    class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-bold hover:scale-105 transition-transform">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900 mt-10">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
+        </div>
+    </footer>
+    <script src="../JS/apurate.js"></script>
+<script>
+  const juegosBtn = document.getElementById('juegosBtn');
+  const juegosPanel = document.getElementById('juegosPanel');
+  const closePanel = document.getElementById('closePanel');
+  const menuToggle = document.getElementById('menuToggle');
+
+  juegosBtn?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  menuToggle?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  closePanel?.addEventListener('click', () => {
+    juegosPanel.classList.add('hidden');
+  });
+</script>
+</body>
+
+</html>
