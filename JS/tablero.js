@@ -22,77 +22,104 @@ const categorias = {
     aventura: {
         colorCls: 'bg-pink-200',
         retos: [
-            { texto: 'Salta un obstáculo (avanzas 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes el rumbo (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Encuentras un mapa (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Salta un obstáculo (avanzas y repartis 1)', efecto: { tipo: 'mover', valor: 1 } },
+            { texto: 'Pierdes el rumbo (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
+            { texto: 'Encuentras un mapa (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
             { texto: 'Cruzas un río difícil (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Un compañero te ayuda (avanzas 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Caes en un pantano (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } },
+            { texto: 'Un compañero te ayuda (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
+            { texto: 'Caes en un pantano (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
             { texto: 'Descansas en un campamento (sin efecto)', efecto: { tipo: 'nada' } },
-            { texto: 'Una tormenta te retrasa (retrocedes 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Encuentras provisiones (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Una tormenta te retrasa (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
+            { texto: 'Encuentras provisiones (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
             { texto: 'Una bestia bloquea el camino (esperas 2 turnos)', efecto: { tipo: 'skip', turnos: 2 } },
-            { texto: 'Subes una montaña (avanzas 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'Pierdes tu mochila (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Descubres un atajo secreto (avanzas 5)', efecto: { tipo: 'mover', valor: 5 } },
-            { texto: 'Caminas en círculos (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } }
+            { texto: 'Subes una montaña (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
+            { texto: 'Pierdes tu mochila (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
+            { texto: 'Descubres un atajo secreto (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
+            { texto: 'Caminas en círculos (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } }
         ]
     },
     conocimiento: {
         colorCls: 'bg-blue-200',
         retos: [
-            { texto: 'Respondes trivia (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Respondes trivia (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
             { texto: 'Olvidas la respuesta (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Das una explicación brillante (avanzas 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Confundes la pregunta (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Resuelves un acertijo (avanzas 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'No entiendes el enunciado (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } },
+            { texto: 'Das una explicación brillante (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
+            { texto: 'Confundes la pregunta (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
+            { texto: 'Resuelves un acertijo (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
+            { texto: 'No entiendes el enunciado (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
             { texto: 'Compartes tu conocimiento (otro jugador avanza 1)', efecto: { tipo: 'dar', valor: 1 } },
             { texto: 'Te quedas en blanco (pierdes próximo turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Citas un dato histórico exacto (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Respondes mal una suma (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Descifras un código (avanzas 5)', efecto: { tipo: 'mover', valor: 5 } },
+            { texto: 'Citas un dato histórico exacto (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Respondes mal una suma (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
+            { texto: 'Descifras un código (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
             { texto: 'Tu respuesta fue incompleta (esperas 1 turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Adivinas la pregunta antes de terminarla (avanzas 3)', efecto: { tipo: 'mover', valor: 3 } }
+            { texto: 'Adivinas la pregunta antes de terminarla (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } }
         ]
     },
     destreza: {
         colorCls: 'bg-green-200',
         retos: [
-            { texto: 'Lanzas bien el dado (avanzas 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Se te cae la ficha (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Equilibrio perfecto (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Lanzas bien el dado (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
+            { texto: 'Se te cae la ficha (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
+            { texto: 'Equilibrio perfecto (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
             { texto: 'Fallás el intento (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Haces una jugada épica (avanzas 5)', efecto: { tipo: 'mover', valor: 5 } },
+            { texto: 'Haces una jugada épica (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
             { texto: 'Te distraés (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } },
             { texto: 'Mantienes el ritmo (avanzas 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes el control (retrocedes 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Superas una prueba física (avanzas 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'Te tropiezas (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Reflejos rápidos (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Pierdes el control (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
+            { texto: 'Superas una prueba física (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
+            { texto: 'Te tropiezas (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
+            { texto: 'Reflejos rápidos (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
             { texto: 'Manos temblorosas (esperas 1 turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Completás un reto difícil (avanzas 6)', efecto: { tipo: 'mover', valor: 6 } }
+            { texto: 'Completás un reto difícil (avanzas y repartis 6)', efecto: { tipo: 'mover', valor: 6 } }
         ]
     },
     suerte: {
         colorCls: 'bg-yellow-200',
         retos: [
-            { texto: 'Encuentras un atajo (avanzas 4)', efecto: { tipo: 'mover', valor: 4 } },
+            { texto: 'Encuentras un atajo (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
             { texto: 'Te resbalas (pierdes el próximo turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Tirada de dado afortunada (avanzas 6)', efecto: { tipo: 'mover', valor: 6 } },
-            { texto: 'Pisas una trampa (retrocedes 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Un aliado te salva (avanzas 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Mala racha (retrocedes 4)', efecto: { tipo: 'mover', valor: -4 } },
+            { texto: 'Tirada de dado afortunada (avanzas y repartis 6)', efecto: { tipo: 'mover', valor: 6 } },
+            { texto: 'Pisas una trampa (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
+            { texto: 'Un aliado te salva (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
+            { texto: 'Mala racha (retrocedes y tomas 4)', efecto: { tipo: 'mover', valor: -4 } },
             { texto: 'Giras la fortuna (cambias lugar con otro jugador)', efecto: { tipo: 'cambiar' } },
-            { texto: 'Encuentras monedas (avanzas 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes todo de golpe (retrocedes 5)', efecto: { tipo: 'mover', valor: -5 } },
-            { texto: 'Ganas un premio inesperado (avanzas 3)', efecto: { tipo: 'mover', valor: 3 } },
+            { texto: 'Encuentras monedas (avanzas y repartis 1)', efecto: { tipo: 'mover', valor: 1 } },
+            { texto: 'Pierdes todo de golpe (retrocedes y tomas 5)', efecto: { tipo: 'mover', valor: -5 } },
+            { texto: 'Ganas un premio inesperado (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
             { texto: 'Caes en mala suerte (esperas 2 turnos)', efecto: { tipo: 'skip', turnos: 2 } },
             { texto: 'Doble fortuna (vuelves a tirar)', efecto: { tipo: 'extraTurno' } },
             { texto: 'Se rompe tu amuleto (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } }
         ]
     }
+}; 
+// Acumulador por categoría
+const retosUsados = {
+  aventura: [],
+  conocimiento: [],
+  destreza: [],
+  suerte: []
 };
+
+function obtenerRetoAleatorio(categoria) {
+  const disponibles = categorias[categoria].retos;
+  const usados = retosUsados[categoria];
+
+  // Si se agotaron, reiniciamos
+  if (usados.length >= disponibles.length) {
+    retosUsados[categoria] = [];
+    console.log(`🔁 Se reinician los retos de ${categoria}`);
+  }
+
+  // Agregamos los que faltan sin repetir
+  agregarSinRepetir(disponibles, retosUsados[categoria]);
+
+  // Elegimos uno al azar y lo eliminamos del acumulador
+  const idx = Math.floor(Math.random() * retosUsados[categoria].length);
+  const reto = retosUsados[categoria].splice(idx, 1)[0];
+
+  return reto;
+}
 
 let jugadores = [];
 let jugadorActual = 0;

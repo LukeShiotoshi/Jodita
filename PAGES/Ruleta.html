@@ -19,48 +19,53 @@
             class="w-full h-full object-cover opacity-20 pointer-events-none" />
     </div>
     </div>
-    <header class="w-full p-4 bg-[#0f0a1a] shadow-md">
-        <div class="flex items-center justify-between flex-wrap">
-            <!-- Logo y nombre -->
-            <a href="./Ruleta.html" class="flex items-center gap-3"></a>
-            <img src="../ASSETS/ruleta.png" alt="Logo"
-                class="w-12 h-12 rounded-full object-cover neon-border neon-purple" />
-            <h1 class="text-2xl font-bold text-[#ff6ec7]">Ruleta de Vicios</h1>
-            </a>
-        </div>
-        <!-- Menú desktop -->
-        <nav class="hidden md:flex ml-auto gap-6 text-lg font-medium">
-            <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
-            <a href="./Lo_bancas.html" class="text-white hover:text-[#00f5ff] transition-colors">Lo bancas?</a>
-            <a href="./Oraculo.html" class="text-white hover:text-[#00f5ff] transition-colors">El oráculo del pedo</a>
-            <a href="./Ruleta.html" class="text-white hover:text-[#00f5ff] transition-colors">Ruleta de Vicios</a>
-            <a href="./Vaso.html" class="text-white hover:text-[#00f5ff] transition-colors">El Vaso Del Destino</a>
-            <a href="./Decilo.html" class="text-white hover:text-[#00f5ff] transition-colors">Decílo o Hacelo</a>
-            <a href="./desconocido.html" class="text-white hover:text-[#00f5ff] transition-colors">Desconocido</a>
-            <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
-            <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
-        </nav>
-        <!-- Botón hamburguesa -->
-        <button id="menuToggle" class="md:hidden text-neon z-50">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
+   <header class="sticky top-0 w-full bg-[#0f0a1a] shadow-md z-50">
+        <div class="flex items-center justify-between p-4">
+            <!-- Logo grande -->
+            <div class="flex items-center gap-3">
+                <img src="../ASSETS/decilo.png" alt="Logo"
+                    class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">La Ruleta De Los Vicios</h1>
+            </div>
 
-        <!-- Menú móvil -->
-        <div id="mobileMenu"
-            class="hidden fixed top-0 left-0 w-full h-full bg-[#121012]/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-xl text-white font-bold z-40 transition-opacity duration-300">
+            <!-- Nav Desktop -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
+                <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+            </div>
 
-            <a href="../index.html" class="text-white hover:text-[#ff00c8] transition-colors">Inicio</a>
-            <a href="./Lo_bancas.html" class="text-white hover:text-[#ff00c8] transition-colors">Lo bancas?</a>
-            <a href="./Oraculo.html" class="text-white hover:text-[#ff00c8] transition-colors">El oráculo del pedo</a>
-            <a href="./Ruleta.html" class="text-white hover:text-[#ff00c8] transition-colors">Ruleta de Vicios</a>
-            <a href="./Vaso.html" class="text-white hover:text-[#ff00c8] transition-colors">El Vaso Del Destino</a>
-            <a href="./Decilo.html" class="text-white hover:text-[#ff00c8] transition-colors">Decílo o Hacelo</a>
-            <a href="./desconocido.html" class="text-white hover:text-[#00f5ff] transition-colors">Desconocido</a>
-            <a href="./reglas.html" class="hover:text-neon transition-colors">Reglas</a>
-            <a href="./contacto.html" class="text-white hover:text-[#ff00c8] transition-colors">Contacto</a>
+            <!-- Botón hamburguesa Mobile -->
+            <button id="menuToggle" class="md:hidden text-neon">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
+
+        <!-- Panel Juegos Desktop / Mobile -->
+        <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto auto-rows-fr">
+    <a href="../index.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Inicio</a>
+    <a href="./Lo_bancas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo bancas?</a>
+    <a href="./Oraculo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El oráculo del pedo</a>
+    <a href="./Ruleta.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta de Vicios</a>
+    <a href="./Vaso.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El Vaso Del Destino</a>
+    <a href="./Decilo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo o Hacelo</a>
+    <a href="./desconocido.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Desconocido</a>
+    <a href="./apurate.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate o Perde</a>
+    <a href="./tablero.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Tablero Vil</a>
+    <a href="./boomerang.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang Maldito</a>
+    <a href="./interrogatorio.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El interrogatorio</a>
+    <a href="./pueblo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La Voz Del Pueblo</a>
+    <a href="./reglas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Reglas</a>
+    <a href="./contacto.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Contacto</a>
+
+  </div>
+  <div class="mt-6 flex justify-center">
+    <button id="closePanel" class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
+  </div>
+</div>
     </header>
     <main class="relative z-10 container mx-auto px-4 py-8 min-h-screen flex flex-col relative z-10">
         <section class="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 my-8 relative z-10">
@@ -197,7 +202,24 @@
     </footer>
 
     <script src="..\JS\ruleta.js"></script>
-    <script src="../JS/burger.js"></script>
+    <script>
+  const juegosBtn = document.getElementById('juegosBtn');
+  const juegosPanel = document.getElementById('juegosPanel');
+  const closePanel = document.getElementById('closePanel');
+  const menuToggle = document.getElementById('menuToggle');
+
+  juegosBtn?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  menuToggle?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  closePanel?.addEventListener('click', () => {
+    juegosPanel.classList.add('hidden');
+  });
+</script>
 </body>
 
 </html>
