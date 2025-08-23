@@ -19,106 +19,134 @@ const posicionesFichas = [
 ];
 // Mensajes para las 36 casillas - estilo fernet de menta
 const categorias = {
-    aventura: {
-        colorCls: 'bg-pink-200',
+    picante: {
+        colorCls: 'bg-blue-300',
         retos: [
-            { texto: 'Salta un obstáculo (avanzas y repartis 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes el rumbo (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Encuentras un mapa (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Cruzas un río difícil (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Un compañero te ayuda (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Caes en un pantano (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Descansas en un campamento (sin efecto)', efecto: { tipo: 'nada' } },
-            { texto: 'Una tormenta te retrasa (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Encuentras provisiones (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Una bestia bloquea el camino (esperas 2 turnos)', efecto: { tipo: 'skip', turnos: 2 } },
-            { texto: 'Subes una montaña (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'Pierdes tu mochila (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Descubres un atajo secreto (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
-            { texto: 'Caminas en círculos (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } }
+            { texto: '¿Cuál es tu mayor fantasía?' },
+            { texto: '¿Con quién del grupo tendrías una cita secreta?' },
+            { texto: '¿Alguna vez tuviste un sueño erótico con alguien conocido?' },
+            { texto: '¿Qué es lo más raro que te excita?' },
+            { texto: '¿Preferís hacerlo con luz o sin luz?' },
+            { texto: '¿Cuál es tu parte del cuerpo favorita?' },
+            { texto: '¿Qué es lo más hot que hiciste en un lugar público?' },
+            { texto: '¿Con cuántas personas chapaste en una noche?' },
+            { texto: '¿Qué preferís: besos largos o rápidos?' },
+            { texto: '¿Quién de acá te parece más atractivo?' },
+            { texto: '¿Te gusta mandar o que te manden?' },
+            { texto: '¿Cuál es tu postura favorita?' },
+            { texto: '¿Alguna vez fuiste infiel?' },
+            { texto: '¿Qué es lo más atrevido que mandaste por chat?' },
+            { texto: '¿Qué famoso/a te calienta más?' },
+            { texto: '¿Qué es lo más raro que buscaste en páginas xxx?' },
+            { texto: '¿Tenés un “crush prohibido”?' },
+            { texto: '¿Cuándo fue la última vez que te chapaste a alguien?' },
+            { texto: '¿Alguna vez tuviste una experiencia de una sola noche?' },
+            { texto: '¿Preferís romance lento o acción rápida?' }
         ]
     },
-    conocimiento: {
-        colorCls: 'bg-blue-200',
+    romance: {
+        colorCls: 'bg-red-300',
         retos: [
-            { texto: 'Respondes trivia (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Olvidas la respuesta (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Das una explicación brillante (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Confundes la pregunta (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Resuelves un acertijo (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'No entiendes el enunciado (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Compartes tu conocimiento (otro jugador avanza 1)', efecto: { tipo: 'dar', valor: 1 } },
-            { texto: 'Te quedas en blanco (pierdes próximo turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Citas un dato histórico exacto (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Respondes mal una suma (retrocedes y tomas 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Descifras un código (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
-            { texto: 'Tu respuesta fue incompleta (esperas 1 turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Adivinas la pregunta antes de terminarla (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } }
+            { texto: '¿Quién fue tu primer amor?' },
+            { texto: '¿Quién te dio tu mejor beso?' },
+            { texto: '¿Alguna vez te enamoraste de alguien imposible?' },
+            { texto: '¿Cuál fue tu peor cita?' },
+            { texto: '¿Qué es lo más cursi que hiciste por alguien?' },
+            { texto: '¿Te gustó alguien de tu grupo de amigos?' },
+            { texto: '¿Creés en el amor a primera vista?' },
+            { texto: '¿Quién fue tu crush más fuerte?' },
+            { texto: '¿Cuál es la canción que te recuerda a alguien especial?' },
+            { texto: '¿Alguna vez escribiste una carta de amor?' },
+            { texto: '¿Qué cosa romántica odiás?' },
+            { texto: '¿Qué es lo que más te enamora de alguien?' },
+            { texto: '¿Perdonarías una infidelidad?' },
+            { texto: '¿Qué regalo de amor fue el mejor que recibiste?' },
+            { texto: '¿Alguna vez te rompieron el corazón?' },
+            { texto: '¿Tenés una cita soñada en mente?' },
+            { texto: '¿Qué fue lo más tierno que te hicieron?' },
+            { texto: '¿Alguna vez lloraste por amor?' },
+            { texto: '¿Cuál es tu película romántica favorita?' },
+            { texto: '¿Sos detallista en el amor?' }
         ]
     },
-    destreza: {
-        colorCls: 'bg-green-200',
+    verguenza: {
+        colorCls: 'bg-green-300',
         retos: [
-            { texto: 'Lanzas bien el dado (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Se te cae la ficha (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Equilibrio perfecto (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Fallás el intento (esperas un turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Haces una jugada épica (avanzas y repartis 5)', efecto: { tipo: 'mover', valor: 5 } },
-            { texto: 'Te distraés (retrocedes 1)', efecto: { tipo: 'mover', valor: -1 } },
-            { texto: 'Mantienes el ritmo (avanzas 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes el control (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Superas una prueba física (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'Te tropiezas (retrocedes y tomas 2)', efecto: { tipo: 'mover', valor: -2 } },
-            { texto: 'Reflejos rápidos (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Manos temblorosas (esperas 1 turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Completás un reto difícil (avanzas y repartis 6)', efecto: { tipo: 'mover', valor: 6 } }
+            { texto: '¿Cuál fue tu momento más vergonzoso?' },
+            { texto: '¿Alguna vez te caíste frente a mucha gente?' },
+            { texto: '¿Qué es lo más ridículo que usaste de ropa?' },
+            { texto: '¿Te equivocaste de chat y mandaste algo comprometido?' },
+            { texto: '¿Cuál fue tu peor papelón en público?' },
+            { texto: '¿Contá un secreto que nunca dijiste a nadie.' },
+            { texto: '¿Cuál fue tu peor nota en la escuela?' },
+            { texto: '¿Cuál es tu apodo más feo?' },
+            { texto: '¿Qué es lo más estúpido que compraste?' },
+            { texto: '¿Alguna vez te quedaste dormido en clase o trabajo?' },
+            { texto: '¿Qué fue lo último que googleaste que da vergüenza?' },
+            { texto: '¿Alguna vez dijiste “te amo” de más?' },
+            { texto: '¿Cuál fue tu peor fail con alguien que te gustaba?' },
+            { texto: '¿Cuál es tu miedo más raro?' },
+            { texto: '¿Alguna vez mentiste para zafar de algo y te descubrieron?' },
+            { texto: '¿Qué es lo más vergonzoso que te pasó con tu familia?' },
+            { texto: '¿Qué canción sabés de memoria pero te da vergüenza admitir?' },
+            { texto: '¿Cuál fue la peor foto tuya viralizada?' },
+            { texto: '¿Alguna vez lloraste en público?' },
+            { texto: '¿Qué es lo más raro que hacías de chico?' }
         ]
     },
-    suerte: {
-        colorCls: 'bg-yellow-200',
+    toma: {
+        colorCls: 'bg-yellow-300',
         retos: [
-            { texto: 'Encuentras un atajo (avanzas y repartis 4)', efecto: { tipo: 'mover', valor: 4 } },
-            { texto: 'Te resbalas (pierdes el próximo turno)', efecto: { tipo: 'skip', turnos: 1 } },
-            { texto: 'Tirada de dado afortunada (avanzas y repartis 6)', efecto: { tipo: 'mover', valor: 6 } },
-            { texto: 'Pisas una trampa (retrocedes y tomas 3)', efecto: { tipo: 'mover', valor: -3 } },
-            { texto: 'Un aliado te salva (avanzas y repartis 2)', efecto: { tipo: 'mover', valor: 2 } },
-            { texto: 'Mala racha (retrocedes y tomas 4)', efecto: { tipo: 'mover', valor: -4 } },
-            { texto: 'Giras la fortuna (cambias lugar con otro jugador)', efecto: { tipo: 'cambiar' } },
-            { texto: 'Encuentras monedas (avanzas y repartis 1)', efecto: { tipo: 'mover', valor: 1 } },
-            { texto: 'Pierdes todo de golpe (retrocedes y tomas 5)', efecto: { tipo: 'mover', valor: -5 } },
-            { texto: 'Ganas un premio inesperado (avanzas y repartis 3)', efecto: { tipo: 'mover', valor: 3 } },
-            { texto: 'Caes en mala suerte (esperas 2 turnos)', efecto: { tipo: 'skip', turnos: 2 } },
-            { texto: 'Doble fortuna (vuelves a tirar)', efecto: { tipo: 'extraTurno' } },
-            { texto: 'Se rompe tu amuleto (retrocedes 2)', efecto: { tipo: 'mover', valor: -2 } }
+            { texto: '¡Qué mala leche! Tomate un shot.' },
+            { texto: 'Buena tirada, repartí 3 tragos.' },
+            { texto: 'Ups… doble shot para vos.' },
+            { texto: 'Se te cayó la ficha, todos menos vos toman.' },
+            { texto: 'Brindis obligatorio, todos toman un sorbo.' },
+            { texto: 'Premio raro: elegí a alguien que se clave dos tragos.' },
+            { texto: '¡Re hidratate! Tomá agua o alcohol, pero tomá.' },
+            { texto: 'Castigo: pasás tu bebida a la derecha.' },
+            { texto: 'Fortuna absurda: inventá un brindis y todos toman.' },
+            { texto: 'Caíste en “la maldición del vaso vacío”: terminá lo que te queda.' },
+            { texto: 'Que tragedia… servite un shot bien cargado.' },
+            { texto: 'Buen karma: elegí a alguien para que no tome.' },
+            { texto: 'Regalá tu próximo trago a otro.' },
+            { texto: 'Tirada mística: el más alto del grupo toma 2.' },
+            { texto: 'Qué bajón, todos los que usan zapatillas toman.' },
+            { texto: 'Invertido: si no querés tomar, bailá 10 segundos ridículamente.' },
+            { texto: 'Regla boba: a partir de ahora no se puede decir “sí”. El que falle toma.' },
+            { texto: 'Mala fortuna: te toca fondo blanco.' },
+            { texto: 'Error de sistema: todos menos vos reparten un trago.' },
+            { texto: 'Excepción absurda: el último que habló toma ya mismo.' }
         ]
     }
-}; 
+};
+
 // Acumulador por categoría
 const retosUsados = {
-  aventura: [],
-  conocimiento: [],
-  destreza: [],
-  suerte: []
+    aventura: [],
+    conocimiento: [],
+    destreza: [],
+    suerte: []
 };
 
 function obtenerRetoAleatorio(categoria) {
-  const disponibles = categorias[categoria].retos;
-  const usados = retosUsados[categoria];
+    const disponibles = categorias[categoria].retos;
+    const usados = retosUsados[categoria];
 
-  // Si se agotaron, reiniciamos
-  if (usados.length >= disponibles.length) {
-    retosUsados[categoria] = [];
-    console.log(`🔁 Se reinician los retos de ${categoria}`);
-  }
+    // Si se agotaron, reiniciamos
+    if (usados.length >= disponibles.length) {
+        retosUsados[categoria] = [];
+        console.log(`🔁 Se reinician los retos de ${categoria}`);
+    }
 
-  // Agregamos los que faltan sin repetir
-  agregarSinRepetir(disponibles, retosUsados[categoria]);
+    // Agregamos los que faltan sin repetir
+    agregarSinRepetir(disponibles, retosUsados[categoria]);
 
-  // Elegimos uno al azar y lo eliminamos del acumulador
-  const idx = Math.floor(Math.random() * retosUsados[categoria].length);
-  const reto = retosUsados[categoria].splice(idx, 1)[0];
+    // Elegimos uno al azar y lo eliminamos del acumulador
+    const idx = Math.floor(Math.random() * retosUsados[categoria].length);
+    const reto = retosUsados[categoria].splice(idx, 1)[0];
 
-  return reto;
+    return reto;
 }
 
 let jugadores = [];
@@ -169,51 +197,51 @@ function actualizarListaJugadores() {
 }
 
 const setupScreen = document.getElementById('setup-screen');
-const gameScreen  = document.getElementById('game-screen');
+const gameScreen = document.getElementById('game-screen');
 
 function actualizarBotonComenzar() {
-  const btn = document.getElementById('comenzar-juego');
-  btn.disabled = jugadores.length < 2;
+    const btn = document.getElementById('comenzar-juego');
+    btn.disabled = jugadores.length < 2;
 }
 // Inicializa el turno: activa el juego y muestra el primer jugador
 function iniciarTurno() {
-  juegoActivo = true;
-  jugadorActual = 0;
-  document.getElementById('jugador-turno').textContent = jugadores[jugadorActual];
+    juegoActivo = true;
+    jugadorActual = 0;
+    document.getElementById('jugador-turno').textContent = jugadores[jugadorActual];
 }
 
 // Actualiza todo el panel de juego: turno y último valor del dado
 function actualizarInterfazJuego() {
-  const turnoEl = document.getElementById('jugador-turno');
-  const dadoEl  = document.getElementById('dado-value');
+    const turnoEl = document.getElementById('jugador-turno');
+    const dadoEl = document.getElementById('dado-value');
 
-  if (!turnoEl || !dadoEl) {
-    console.error('Falta #jugador-turno o #dado-value en el DOM');
-    return;
-  }
+    if (!turnoEl || !dadoEl) {
+        console.error('Falta #jugador-turno o #dado-value en el DOM');
+        return;
+    }
 
-  // Actualizar nombre del jugador
-  let texto = jugadores[jugadorActual];
-  if ((extraTurnos[jugadores[jugadorActual]] || 0) > 0) {
-    texto += ' 🔄';
-  }
-  turnoEl.textContent = texto;
+    // Actualizar nombre del jugador
+    let texto = jugadores[jugadorActual];
+    if ((extraTurnos[jugadores[jugadorActual]] || 0) > 0) {
+        texto += ' 🔄';
+    }
+    turnoEl.textContent = texto;
 
-  // Reiniciar valor del dado
-  dadoEl.textContent = '?';
+    // Reiniciar valor del dado
+    dadoEl.textContent = '?';
 }
 
 
 function comenzarJuego() {
- if (jugadores.length < 2) return;
+    if (jugadores.length < 2) return;
 
-  setupScreen.classList.add('hidden');
-  gameScreen.classList.remove('hidden');
+    setupScreen.classList.add('hidden');
+    gameScreen.classList.remove('hidden');
 
-  juegoActivo = true;            // <–– activa el juego
-  iniciarTurno();
-  generarTablero();
-  actualizarInterfazJuego();     // o actualizarInterfaz, según tu nombre real
+    juegoActivo = true;            // <–– activa el juego
+    iniciarTurno();
+    generarTablero();
+    actualizarInterfazJuego();     // o actualizarInterfaz, según tu nombre real
 
 }
 
@@ -222,21 +250,15 @@ function comenzarJuego() {
 
 // Generar tablero 6x6 con 4 grupos de colores
 function generarTablero() {
-    // 1. Declara y limpia el contenedor aquí
     const tableroContainer = document.getElementById('tablero');
     tableroContainer.innerHTML = '';
     tablero = [];
 
-    // 2. Prepara y mezcla categorías
-    let asignaciones = [];
-    Object.keys(categorias).forEach(key => {
-        for (let i = 0; i < 9; i++) asignaciones.push(key);
-    });
-    asignaciones.sort(() => Math.random() - 0.5);
+    const ordenCategorias = ['picante', 'romance', 'verguenza', 'toma'];
 
-    // 3. Crea y añade las 36 casillas
-    asignaciones.forEach((catKey, idx) => {
-        const num = idx + 1;
+    for (let i = 0; i < 66; i++) {
+        const num = i + 1;
+        const catKey = ordenCategorias[i % ordenCategorias.length];
         const cat = categorias[catKey];
         const reto = cat.retos[Math.floor(Math.random() * cat.retos.length)];
 
@@ -244,25 +266,23 @@ function generarTablero() {
 
         const div = document.createElement('div');
         div.className = `
-      casilla relative h-16 rounded-lg flex items-center justify-center
-      text-sm font-bold ${cat.colorCls} text-gray-800`;
+  casilla relative aspect-square rounded-lg flex items-center justify-center
+  text-xs sm:text-sm font-bold ${cat.colorCls} text-gray-800
+`;
         div.innerHTML = `
-      <span>${num}</span>
-      <div id="fichas-${num}" class="absolute inset-0"></div>
-    `;
+          <span>${num}</span>
+          <div id="fichas-${num}" class="absolute inset-0"></div>
+        `;
         div.addEventListener('click', () => {
             const jugador = jugadores[jugadorActual];
             const estaEnEsta = posiciones[jugador] === num;
             mostrarModalCasilla(tablero[num - 1], estaEnEsta);
         });
-
-        // 4. Aquí sí existe y puedes hacer appendChild
         tableroContainer.appendChild(div);
-    });
-
-    // 5. Una vez creadas, pinta las fichas
+    }
     actualizarFichasEnTablero();
 }
+
 
 // Actualizar fichas en el tablero
 function actualizarFichasEnTablero() {
@@ -308,28 +328,28 @@ function actualizarFichasEnTablero() {
 
 // Tirar dado
 function tirarDado() {
-  if (!juegoActivo) return;
+    if (!juegoActivo) return;
 
-  const resultado = Math.ceil(Math.random() * 6);
-  const jugador   = jugadores[jugadorActual];
-  const origen    = posiciones[jugador] ?? 0;
-  let   destino   = origen + resultado;
-  if (destino > tablero.length) destino = tablero.length;
+    const resultado = Math.ceil(Math.random() * 6);
+    const jugador = jugadores[jugadorActual];
+    const origen = posiciones[jugador] ?? 0;
+    let destino = origen + resultado;
+    if (destino > tablero.length) destino = tablero.length;
 
-  // 1. Mostrar resultado del dado
-  document.getElementById('modal-dado-resultado').textContent = resultado;
-  document.getElementById('modal-dado-mensaje').textContent   =
-    `Avanzas de ${origen} a ${destino}`;
-  document.getElementById('modal-resultado').classList.remove('hidden');
+    // 1. Mostrar resultado del dado
+    document.getElementById('modal-dado-resultado').textContent = resultado;
+    document.getElementById('modal-dado-mensaje').textContent =
+        `Avanzas de ${origen} a ${destino}`;
+    document.getElementById('modal-resultado').classList.remove('hidden');
 
-  // 2. Actualizar la posición y pintar la ficha de fondo
-  posiciones[jugador] = destino;
-  actualizarFichasEnTablero();
+    // 2. Actualizar la posición y pintar la ficha de fondo
+    posiciones[jugador] = destino;
+    actualizarFichasEnTablero();
 
-  // 3. Auto-cerrar en 1.5 segundos
-  setTimeout(() => {
-    cerrarModalResultado();
-  }, 1500);
+    // 3. Auto-cerrar en 1.5 segundos
+    setTimeout(() => {
+        cerrarModalResultado();
+    }, 1500);
 }
 
 
@@ -368,7 +388,7 @@ function mostrarModalCasilla(casillaObj, aplicaEfecto) {
         casillaObj.numero;
     document.getElementById('modal-descripcion').textContent =
         casillaObj.reto.texto;
-     document.getElementById('modal-casilla').classList.remove('hidden');
+    document.getElementById('modal-casilla').classList.remove('hidden');
 
     // guarda si al cerrar debe aplicar el efecto
     modal.dataset.aplica = aplicaEfecto ? '1' : '0';
@@ -444,11 +464,11 @@ function cerrarModalDar() {
     jugadorActual = (jugadorActual + 1) % jugadores.length;
 }
 function cerrarModalResultado() {
-  document.getElementById('modal-resultado').classList.add('hidden');
-  // Abre directo el modal de la casilla actual
-  const jugador  = jugadores[jugadorActual];
-  const pos      = posiciones[jugador];
-  mostrarModalCasilla(tablero[pos - 1], true);
+    document.getElementById('modal-resultado').classList.add('hidden');
+    // Abre directo el modal de la casilla actual
+    const jugador = jugadores[jugadorActual];
+    const pos = posiciones[jugador];
+    mostrarModalCasilla(tablero[pos - 1], true);
 
 }
 
