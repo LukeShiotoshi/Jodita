@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -142,3 +143,149 @@
 </body>
 </html>
 
+=======
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bingo de la Desgracia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/bingo.css">
+</head>
+<body class="bg-gray-900 text-white font-bold min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0f0a1a] shadow-md flex items-center justify-between px-6 py-3">
+    <div class="flex items-center gap-4">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1fe1996-78e7-4dc9-994a-aa43fc794025.png" alt="Logo circular con estilo neón en colores rosa y azul brillante" class="w-12 h-12 rounded-full object-cover ring-4 ring-[#ff6ec7] border border-[#00f5ff] shadow-[0_0_10px_#ff6ec7]" />
+      <h1 class="text-2xl select-none">Bingo de la Desgracia</h1>
+    </div>
+  </header>
+
+  <!-- PANTALLA INICIAL (Setup) -->
+  <main id="setup-screen" class="flex-grow max-w-4xl mx-auto p-6 flex flex-col gap-8">
+    
+    <!-- Panel de Configuración -->
+    <div class="bg-[#0f0a1a] rounded-lg p-6 ring-2 ring-[#00f5ff] shadow-[0_0_15px_#00f5ff]">
+      <h2 class="text-2xl mb-6 text-center neon-border-blue">Configurar Juego</h2>
+      
+      <!-- Formulario Jugadores -->
+      <div class="mb-8">
+        <h3 class="text-xl mb-4 text-pink-300">Agregar Jugadores</h3>
+        <form id="player-form" class="flex gap-2 mb-4">
+          <input type="text" id="player-name" placeholder="Nombre del jugador" required
+            class="flex-grow rounded-md px-3 py-2 bg-gray-800 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00f5ff]" />
+          <button type="submit" class="rounded-full bg-gradient-to-r from-pink-300 to-[#00f5ff] text-white font-bold px-4 hover:opacity-90 transition-opacity">
+            Agregar
+          </button>
+        </form>
+        
+        <div id="players-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-48 overflow-y-auto">
+          <!-- Jugadores se agregarán aquí -->
+        </div>
+      </div>
+
+      <!-- Botón para empezar -->
+      <button id="start-game" disabled
+        class="w-full rounded-full text-lg font-bold bg-gradient-to-r from-pink-300 to-[#00f5ff] text-white px-8 py-3 opacity-50 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+        ¡Comenzar Juego!
+      </button>
+    </div>
+
+    <!-- Instrucciones -->
+    <div class="bg-[#0f0a1a] rounded-lg p-6 ring-2 ring-pink-300 shadow-[0_0_15px_#ff6ec7] bg-black/50">
+      <h2 class="text-2xl mb-4 text-center neon-border-pink">Instrucciones</h2>
+      <ol class="list-decimal list-inside space-y-3 text-sm md:text-base">
+        <li><span class="text-cyan-300">Agrega al menos 2 jugadores</span> para comenzar el juego</li>
+        <li><span class="text-pink-300">Presiona "Siguiente Número"</span> para generar una desgracia</li>
+        <li><span class="text-green-300">La desgracia se asigna aleatoriamente</span> a una casilla del tablero</li>
+        <li><span class="text-yellow-300">Haz click en cualquier casilla</span> para seleccionarla</li>
+        <li><span class="text-purple-300">Luego haz click en los nombres de jugadores</span> que tengan esa desgracia</li>
+        <li><span class="text-pink-300">El primero en completar una fila o columna gana</span></li>
+      </ol>
+    </div>
+  </main>
+
+  <!-- PANTALLA DE JUEGO (hidden inicialmente) -->
+  <main id="game-screen" class="hidden flex-grow max-w-7xl mx-auto p-6 flex flex-col gap-8">
+
+    <!-- Panel de Desgracia Actual -->
+    <div id="current-desgracia-panel" class="bg-[#0f0a1a] rounded-lg p-6 ring-4 ring-[#00f5ff] shadow-[0_0_20px_#00f5ff] text-center hidden">
+      <h2 class="text-xl mb-4 text-pink-300">Desgracia Generada</h2>
+      <div id="current-desgracia-text" class="text-2xl md:text-3xl font-bold text-cyan-300 animate-pulse-neon min-h-[4rem] flex items-center justify-center">
+        <!-- Texto de la desgracia aparecerá aquí -->
+      </div>
+      <p class="text-sm text-gray-400 mt-2">Esta desgracia se ha asignado a una casilla aleatoria</p>
+    </div>
+
+    <!-- Panel Principal del Juego -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      
+      <!-- Tablero y Controles -->
+      <div class="lg:col-span-3">
+        <!-- Tablero -->
+        <div class="bg-[#0f0a1a] rounded-lg p-4 ring-4 ring-[#00f5ff] shadow-[0_0_20px_#00f5ff] flex flex-col items-center mb-6">
+          <h2 class="text-2xl mb-4 neon-border-blue">Tablero 7x7</h2>
+          <div id="board" class="grid grid-cols-7 grid-rows-7 gap-1 w-full max-w-[28rem] aspect-square bg-black/50 rounded-md p-1 mb-4">
+            <!-- 49 celdas generadas por JS -->
+          </div>
+          
+          <!-- Bola actual y botón -->
+          <div class="flex items-center gap-6">
+            <div id="current-ball" class="relative w-16 h-16 flex items-center justify-center"></div>
+            <button id="next-number" class="rounded-full text-lg font-bold bg-gradient-to-r from-pink-300 to-[#00f5ff] text-white px-6 py-2 animate-pulse-neon hover:opacity-90 transition-opacity">
+              Siguiente Número
+            </button>
+          </div>
+        </div>
+        
+        <!-- Estado del Juego -->
+        <div id="game-status" class="bg-[#0f0a1a] rounded-lg p-4 ring-2 ring-pink-300 shadow-[0_0_15px_#ff6ec7] text-center">
+          <p id="status-message" class="text-lg text-cyan-300">Presiona "Siguiente Número" para comenzar</p>
+          <p id="selected-cell-info" class="text-sm text-gray-400 mt-1 hidden">Casilla seleccionada: <span id="selected-cell-number"></span></p>
+        </div>
+      </div>
+
+      <!-- Panel de Jugadores -->
+      <div class="bg-[#0f0a1a] rounded-lg p-4 ring-2 ring-[#00f5ff] shadow-[0_0_15px_#00f5ff]">
+        <h2 class="text-xl mb-4 text-center neon-border-pink">Jugadores</h2>
+        <div id="active-players" class="space-y-2 max-h-96 overflow-y-auto">
+          <!-- Jugadores activos -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Asignación (aparece cuando se selecciona casilla) -->
+    <div id="assignment-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+      <div class="bg-[#0f0a1a] rounded-lg p-6 ring-4 ring-[#00f5ff] shadow-[0_0_20px_#00f5ff] max-w-md w-full mx-4">
+        <h2 class="text-xl mb-4 text-center text-pink-300">Asignar Jugadores</h2>
+        <p id="modal-desgracia" class="text-lg text-cyan-300 text-center mb-4"></p>
+        <p class="text-sm text-gray-400 text-center mb-4">Selecciona los jugadores que tienen esta desgracia</p>
+        
+        <div id="modal-players" class="space-y-2 mb-4 max-h-48 overflow-y-auto">
+          <!-- Jugadores para asignar -->
+        </div>
+        
+        <div class="flex gap-2">
+          <button id="modal-cancel" class="flex-1 bg-gray-700 text-white rounded-md px-4 py-2 hover:bg-gray-600 transition-colors">
+            Cancelar
+          </button>
+          <button id="modal-confirm" class="flex-1 bg-gradient-to-r from-pink-300 to-[#00f5ff] text-white font-bold rounded-md px-4 py-2 hover:opacity-90 transition-opacity">
+            Confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black bg-opacity-60 backdrop-blur-lg border-t border-purple-900 text-gray-400 text-center py-4 select-none">
+    © 2024 Bingo de la Desgracia - Juego social neón
+  </footer>
+
+  <script src="../js/bingo.js"></script>
+</body>
+</html>
+
+>>>>>>> 4a7d40bebcf4dc1f13a4f1663001167ab3c5e857
