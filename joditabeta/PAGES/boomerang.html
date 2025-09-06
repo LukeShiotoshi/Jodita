@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jodita Loca - Pregunta Boomerang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../CSS/boomerang.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-900 text-white">
+<header class="sticky top-0 w-full bg-[#0f0a1a] shadow-md z-50">
+        <div class="flex items-center justify-between p-4">
+            <!-- Logo grande -->
+            <div class="flex items-center gap-3">
+                <img src="../ASSETS/boomerang.png" alt="Logo"
+                    class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">El Boomerang Maldito </h1>
+            </div>
+
+            <!-- Nav Desktop -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
+                
+            </div>
+
+            <!-- Botón hamburguesa Mobile -->
+            <button id="menuToggle" class="md:hidden text-neon">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+            <!-- Panel Juegos Desktop / Mobile -->
+    <!-- Panel Juegos Desktop / Mobile -->
+    <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-min auto-rows-fr">
+        <a href="../index.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Inicio
+        </a>
+        <a href="./Lo_bancas.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo
+          bancas?</a>
+        <a href="./Oraculo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          oráculo del pedo</a>
+        <a href="./Ruleta.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta
+          de Vicios</a>
+        <a href="./Vaso.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          Vaso Del Destino</a>
+        <a href="./Decilo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo
+          o Hacelo</a>
+        <a href="./aproximate.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Aproximate</a>
+        <a href="./apurate.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate
+          o Perde</a>
+        <a href="./tablero.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">bingo vil</a>
+        <a href="./boomerang.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang
+          Maldito</a>
+        <a href="./interrogatorio.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          interrogatorio</a>
+        <a href="./pueblo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La
+          Voz Del Pueblo</a>
+          <a href="./besar.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Bes*r, C*ger, Mat*r</a>
+        <a href="./reglas.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Reglas
+        </a>
+        <a href="./contacto.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Contacto
+        </a>
+      </div>      <div class="mt-6 flex justify-center">
+        <button id="closePanel"
+          class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
+      </div>
+    </div>
+  </header>
+    <main class="flex-1 flex flex-col items-center pt-20 px-4">
+     <div class="stars" id="stars"></div>
+
+    
+        <div class="game-container w-full max-w-4xl p-6 md:p-8 mt-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold neon-text font-orbitron mb-4">
+                El Boomerang Maldito
+            </h1>
+            <p class="text-cyan-300 text-lg">Si evadís la pregunta... ¡BOOMERANG! +1 trago y pasa al siguiente</p>
+        </div>
+
+        <!-- Setup Section -->
+        <div id="setup-section" class="mb-8">
+            <div class="bg-gray-900 p-6 rounded-lg border border-cyan-500 border-opacity-30 mb-6">
+                <h2 class="text-2xl font-semibold neon-text mb-4">👥 Agregar Jugadores</h2>
+                <div class="flex gap-2 mb-4">
+                    <input 
+                        type="text" 
+                        id="player-name" 
+                        placeholder="Nombre del jugador" 
+                        class="flex-1 px-4 py-2 rounded-lg input-neon focus:outline-none"
+                    >
+                    <button 
+                        onclick="addPlayer()" 
+                        class="btn-primary px-6 py-2 rounded-lg font-semibold"
+                    >
+                        ➕ Agregar
+                    </button>
+                </div>
+                <div id="players-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4"></div>
+                <button 
+                    onclick="startGame()" 
+                    id="start-btn" 
+                    disabled
+                    class="w-full btn-primary py-3 rounded-lg font-semibold text-lg opacity-50 cursor-not-allowed"
+                >
+                    🎮 Empezar Juego
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div id="game-section" class="hidden">
+            <!-- Turn Indicator -->
+            <div class="bg-gradient-to-r from-cyan-900 to-purple-900 p-4 rounded-lg mb-6 text-center border border-cyan-500 border-opacity-30">
+                <h3 class="text-lg font-semibold text-cyan-300">Turno de:</h3>
+                <div id="current-player" class="text-2xl font-bold neon-text"></div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="card p-8 rounded-xl mb-6">
+                <div class="text-4xl mb-4 text-center">🎲</div>
+                <h3 class="text-xl font-semibold text-cyan-300 mb-2 text-center">PREGUNTA:</h3>
+                <div id="current-question" class="text-2xl font-bold text-white mb-6 text-center">
+                    Presiona "Sacar Pregunta" para comenzar
+                </div>
+                <div class="flex gap-4 justify-center">
+                    <button 
+                        onclick="drawQuestion()" 
+                        class="btn-primary px-8 py-3 rounded-lg font-semibold text-lg"
+                    >
+                        🎯 Sacar Pregunta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <button 
+                    onclick="boomerangHit()" 
+                    id="boomerang-btn" 
+                    disabled
+                    class="btn-danger py-4 rounded-lg font-semibold text-lg opacity-50 cursor-not-allowed"
+                >
+                    ❌ BOOMERANG! +1 Trago
+                </button>
+                <button 
+                    onclick="nextTurn()" 
+                    id="next-btn" 
+                    disabled
+                    class="btn-success py-4 rounded-lg font-semibold text-lg opacity-50 cursor-not-allowed"
+                >
+                    ✅ Respondí - Siguiente
+                </button>
+            </div>
+
+            <!-- Players Status -->
+            <div class="bg-gray-900 p-6 rounded-lg border border-cyan-500 border-opacity-30">
+                <h3 class="text-xl font-semibold neon-text mb-4">JUGADORES</h3>
+                <div id="game-players" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+            </div>
+        </div>
+
+        <!-- Boomerang Animation -->
+        <div id="boomerang-animation" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+            <div class="bg-gray-900 p-8 rounded-lg text-center border-2 border-cyan-500">
+                <div class="text-6xl mb-4 animate-glow">🌀</div>
+                <h3 class="text-3xl font-bold neon-red mb-2">¡BOOMERANG!</h3>
+                <p class="text-lg text-cyan-300 mb-2">+1 trago para ti...</p>
+                <p id="boomerang-target" class="text-xl font-bold text-white mb-4">¡Y la pregunta continúa!</p>
+                <button 
+                    onclick="hideBoomerangAnimation()" 
+                    class="btn-primary px-8 py-3 rounded-lg font-semibold"
+                >
+                    Continuar
+                </button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer class="mt-auto w-full bg-black bg-opacity-60 backdrop-filter backdrop-blur-lg py-8 border-t border-purple-900">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p>© 2025 Jodita Loca - Todos los derechos reservados</p>
+            <p class="mt-2">Juega responsablemente y con moderación</p>
+        </div>
+    </footer>
+    <script>
+  const juegosBtn = document.getElementById('juegosBtn');
+  const juegosPanel = document.getElementById('juegosPanel');
+  const closePanel = document.getElementById('closePanel');
+  const menuToggle = document.getElementById('menuToggle');
+
+  juegosBtn?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  menuToggle?.addEventListener('click', () => {
+    juegosPanel.classList.toggle('hidden');
+  });
+
+  closePanel?.addEventListener('click', () => {
+    juegosPanel.classList.add('hidden');
+  });
+</script>
+<script src="../JS/boomerang.js"></script>
+</body>
+</html>
+
