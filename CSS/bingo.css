@@ -1,0 +1,45 @@
+    @keyframes pulse-neon {
+      0%, 100% {
+        text-shadow:
+          0 0 6px #ff6ec7,
+          0 0 10px #ff6ec7,
+          0 0 20px #ff6ec7,
+          0 0 40px #00f5ff,
+          0 0 80px #00f5ff;
+      }
+      50% {
+        text-shadow:
+          0 0 10px #ff6ec7,
+          0 0 20px #ff6ec7,
+          0 0 30px #ff6ec7,
+          0 0 50px #00f5ff,
+          0 0 100px #00f5ff;
+      }
+    }
+    @keyframes ball-fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(50px) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 1;
+      }
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .animate-pulse-neon {
+      animation: pulse-neon 2.5s infinite;
+    }
+    .animate-ball-fall {
+      animation: ball-fall 1s ease-out;
+    }
+    .animate-flash {
+      animation: flash 0.5s ease-in-out 3;
+    }

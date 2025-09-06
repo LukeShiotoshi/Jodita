@@ -60,7 +60,7 @@ const ridiculousOptions = [
     { text: "Imitá a alguien que no sabés imitar" },
     { text: "Dale voz a un objeto cercano y hacelo hablar con vos" },
     { text: "Promocioná una piedra como si fuera el mejor producto del mundo" },
-    { text: "Movete en cámara rápida por 30 segundos" },
+    { text: "Movete en cámara rápida" },
     { text: "Dibujá una bandera para una nación inventada y explicala" },
     { text: "Reaccioná a algo invisible como si fuera increíble" },
     { text: "Simulá que te estás despidiendo de una película dramática" },

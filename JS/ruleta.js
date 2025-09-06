@@ -116,7 +116,7 @@ const categories = [
             "Decí a quién del grupo te cogerías sin pensarlo",
             "Decí cuál fue tu peor experiencia sexual",
             "Mostrá tu cara de orgasmo",
-            "Hablá sucio por 10 segundos",
+            "Hablá sucio",
             "Besá algo como si fuera alguien",
             "Simulá un gemido exagerado",
             "Decí a quién besarías con los ojos cerrados",
@@ -210,7 +210,7 @@ const categories = [
             "Hacé flexiones mientras alguien te hace preguntas",
             "Ponete una bufanda improvisada con papel",
             "Hacé 10 vueltas caminando en círculo",
-            "Hablá sin usar vocales por 30 segundos",
+            "Hablá sin usar vocales",
             "Contá tu mayor exceso con alcohol o tomás 2 tragos"
         ]
     }

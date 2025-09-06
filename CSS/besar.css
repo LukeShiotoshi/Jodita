@@ -1,0 +1,296 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Pantalla inicial */
+        .start-screen {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 3rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #00ffff;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #00ffff;
+        }
+
+        .start-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .play-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.7);
+        }
+
+        /* Pantalla de juego (oculta inicialmente) */
+        .game-screen {
+            display: none;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .game-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Botones arrastrables */
+        .actions-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 1.2rem 1.8rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: grab;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            text-align: center;
+            user-select: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .action-btn.used {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(0.95);
+        }
+
+        .action-btn:hover:not(.used) {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .besar-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff4757);
+            color: white;
+        }
+
+        .coger-btn {
+            background: linear-gradient(45deg, #4834d4, #686de0);
+            color: white;
+        }
+
+        .matar-btn {
+            background: linear-gradient(45deg, #2d3436, #636e72);
+            color: white;
+        }
+
+        /* Celebridades */
+        .celebrities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .celebrity-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .celebrity-card.drag-over {
+            background: rgba(255, 0, 255, 0.3);
+            border: 2px dashed #ff00ff;
+            box-shadow: 0 0 30px #ff00ff;
+        }
+
+        .celebrity-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 3px solid #ff00ff;
+        }
+
+        .celebrity-name {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .celebrity-action {
+            font-size: 0.9rem;
+            color: #ff00ff;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        /* Resultado y controles */
+        .result-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff00ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+
+            -webkit-text-fill-color: transparent;
+            min-height: 30px;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 2rem;
+        }
+.action-btn.selected {
+  outline: 2px solid #00ffff;  
+  box-shadow: 0 0 6px #00ffff;
+}
+.celebrity-card.drag-over {
+  border-color: #00ffff;       /* borde neón cyan */
+  box-shadow: 0 0 8px #00ffff; /* resplandor */
+}
+/* botón mientras “lo arrastras” */
+.action-btn.dragging {
+  opacity: 0.5;
+}
+
+/* tarjeta under pointermove */
+.celebrity-card.drag-over {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+}
+/* Habilita pointer events libres y marca drag-over */
+.action-btn, .celebrity-card {
+  touch-action: none;
+}
+.action-btn.dragging {
+  opacity: 0.5;
+}
+.celebrity-card.drag-over {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+}
+        .next-round-btn {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .next-round-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 184, 148, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .start-screen {
+                margin: 2rem 1rem;
+                padding: 2rem;
+            }
+            
+            .actions-container {
+                gap: 1rem;
+            }
+            
+            .action-btn {
+                padding: 1rem 1.5rem;
+                min-width: 90px;
+                font-size: 1rem;
+            }
+            
+            .celebrities-container {
+                grid-template-columns: 1fr;
+            }
+        }
