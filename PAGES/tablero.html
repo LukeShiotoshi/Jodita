@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fiesta Neon - Juego de Tablero</title>
+  <title>Jodita Loca - bingo vil</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../CSS/tablero.css">
 </head>
@@ -16,14 +16,14 @@
       <div class="flex items-center gap-3">
         <img src="../ASSETS/tablero.png" alt="Logo"
           class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
-        <h1 class="text-2xl font-bold text-[#ff6ec7]">El Tablero Vil </h1>
+        <h1 class="text-2xl font-bold text-[#ff6ec7]">El bingo vil </h1>
       </div>
 
       <!-- Nav Desktop -->
       <div class="hidden md:flex items-center gap-6">
         <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
         <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
-        <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+        
       </div>
 
       <!-- Botón hamburguesa Mobile -->
@@ -34,6 +34,7 @@
       </button>
     </div>
 
+    <!-- Panel Juegos Desktop / Mobile -->
     <!-- Panel Juegos Desktop / Mobile -->
     <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
       <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-min auto-rows-fr">
@@ -56,14 +57,13 @@
         <a href="./Decilo.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo
           o Hacelo</a>
-        <a href="./desconocido.html"
-          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Desconocido</a>
+        <a href="./aproximate.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Aproximate</a>
         <a href="./apurate.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate
           o Perde</a>
         <a href="./tablero.html"
-          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Tablero
-          Vil</a>
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">bingo vil</a>
         <a href="./boomerang.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang
           Maldito</a>
@@ -83,8 +83,7 @@
           class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
           Contacto
         </a>
-      </div>
-      <div class="mt-6 flex justify-center">
+      </div>      <div class="mt-6 flex justify-center">
         <button id="closePanel"
           class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
       </div>

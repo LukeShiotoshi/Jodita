@@ -10,24 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./ASSETS/jodita.png">
     <script src="./JS/cocktails.js"></script>
-    <script>
-  const juegosBtn = document.getElementById('juegosBtn');
-  const juegosPanel = document.getElementById('juegosPanel');
-  const closePanel = document.getElementById('closePanel');
-  const menuToggle = document.getElementById('menuToggle');
-
-  juegosBtn?.addEventListener('click', () => {
-    juegosPanel.classList.toggle('hidden');
-  });
-
-  menuToggle?.addEventListener('click', () => {
-    juegosPanel.classList.toggle('hidden');
-  });
-
-  closePanel?.addEventListener('click', () => {
-    juegosPanel.classList.add('hidden');
-  });
-</script>
+    
 </head>
 
 <body>
@@ -35,16 +18,16 @@
         <div class="flex items-center justify-between p-4">
             <!-- Logo grande -->
             <div class="flex items-center gap-3">
-                <img src="../ASSETS/decilo.png" alt="Logo"
+                <img src="./ASSETS/jodita.png" alt="Logo"
                     class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
-                <h1 class="text-2xl font-bold text-[#ff6ec7]">Jodita Loca </h1>
+                <h1 class="text-2xl font-bold text-[#ff6ec7]">Jodita Loca</h1>
             </div>
 
             <!-- Nav Desktop -->
             <div class="hidden md:flex items-center gap-6">
-                <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+                <a href="./index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
                 <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
-                <a href="./contacto.html" class="text-white hover:text-[#00f5ff] transition-colors">Contacto</a>
+
             </div>
 
             <!-- Botón hamburguesa Mobile -->
@@ -57,27 +40,61 @@
 
         <!-- Panel Juegos Desktop / Mobile -->
         <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto auto-rows-fr">
-    <a href="../index.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Inicio</a>
-    <a href="./Lo_bancas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo bancas?</a>
-    <a href="./Oraculo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El oráculo del pedo</a>
-    <a href="./Ruleta.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta de Vicios</a>
-    <a href="./Vaso.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El Vaso Del Destino</a>
-    <a href="./Decilo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo o Hacelo</a>
-    <a href="./desconocido.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Desconocido</a>
-    <a href="./apurate.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate o Perde</a>
-    <a href="./tablero.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Tablero Vil</a>
-    <a href="./boomerang.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang Maldito</a>
-    <a href="./interrogatorio.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El interrogatorio</a>
-    <a href="./pueblo.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La Voz Del Pueblo</a>
-    <a href="./reglas.html" class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Reglas</a>
-    <a href="./contacto.html" class="col-span-2 md:col-span-3 h-28 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Contacto</a>
-
-  </div>
-  <div class="mt-6 flex justify-center">
-    <button id="closePanel" class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
-  </div>
-</div>
+            <div
+                class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-min auto-rows-fr">
+                <a href="./index.html"
+                    class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+                    Inicio
+                </a>
+                <a href="./PAGES/Lo_bancas.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo
+                    bancas?</a>
+                <a href="./PAGES/Oraculo.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+                    oráculo del pedo</a>
+                <a href="./PAGES/Ruleta.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta
+                    de Vicios</a>
+                <a href="./PAGES/Vaso.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+                    Vaso Del Destino</a>
+                <a href="./PAGES/Decilo.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo
+                    o Hacelo</a>
+                <a href="./PAGES/aproximate.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">aproximate</a>
+                <a href="./PAGES/apurate.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate
+                    o Perde</a>
+                <a href="./PAGES/tablero.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">bingo
+                    vil</a>
+                <a href="./PAGES/boomerang.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang
+                    Maldito</a>
+                <a href="./PAGES/interrogatorio.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+                    interrogatorio</a>
+                <a href="./PAGES/pueblo.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La
+                    Voz Del Pueblo</a>
+                <a href="./PAGES/besar.html"
+                    class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Bes*r,
+                    C*ger, Mat*r</a>
+                <a href="./PAGES/reglas.html"
+                    class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+                    Reglas
+                </a>
+                <a href="./PAGES/contacto.html"
+                    class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+                    Contacto
+                </a>
+            </div>
+            <div class="mt-6 flex justify-center">
+                <button id="closePanel"
+                    class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
+            </div>
+        </div>
     </header>
 
     <div class="wide-image">
@@ -129,11 +146,12 @@
             </div>
         </div>
         <div class="game-card">
-            <img src="./ASSETS/desconocido.png" alt="" class="w-[140px] h-[150px] object-contain object-cover rounded-t-lg" />
-            <h3>Desconocido</h3>
+            <img src="./ASSETS/aproximate.png" alt=""
+                class="w-[140px] h-[150px] object-contain object-cover rounded-t-lg" />
+            <h3>aproximate</h3>
             <div class="game-overlay">
-                <p>Infiltra la mentira con tus amigos</p>
-                <a href="./PAGES/Desconocido.html">Jugar ahora</a>
+                <p>A ver que tan cerca estas</p>
+                <a href="./PAGES/aproximate.html">Jugar ahora</a>
             </div>
         </div>
         <div class="game-card">
@@ -174,6 +192,14 @@
             <div class="game-overlay">
                 <p>Tira el dado y confia en llegar rapido al final.</p>
                 <a href="./PAGES/tablero.html">Jugar ahora</a>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="./ASSETS/Besar.png" alt="" class="w-[140px] h-[150px] object-cover rounded-t-lg" />
+            <h3>Bes*r, Cog*r, Mat*r</h3>
+            <div class="game-overlay">
+                <p>Veamos que tan polemico sos con los famosos.</p>
+                <a href="./PAGES/Besar.html">Jugar ahora</a>
             </div>
         </div>
     </section>
@@ -258,6 +284,25 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script>
+        const juegosBtn = document.getElementById('juegosBtn');
+        const juegosPanel = document.getElementById('juegosPanel');
+        const closePanel = document.getElementById('closePanel');
+        const menuToggle = document.getElementById('menuToggle');
+
+        // Abrir panel desde Desktop
+        juegosBtn?.addEventListener('click', () => {
+            juegosPanel.classList.remove('hidden');
+        });
+
+        // Abrir panel desde Mobile (hamburguesa)
+        menuToggle?.addEventListener('click', () => {
+            juegosPanel.classList.remove('hidden');
+        });
+
+        // Cerrar panel
+        closePanel?.addEventListener('click', () => {
+            juegosPanel.classList.add('hidden');
+        });
         const firebaseConfig = {
             apiKey: "AIzaSyD5EYnz_1cppdD308EqR1u1MKLmw6Hhf28",
             authDomain: "contador-jodita.firebaseapp.com",
