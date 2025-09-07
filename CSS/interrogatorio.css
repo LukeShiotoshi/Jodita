@@ -22,7 +22,6 @@ body {
         0 0 20px #00ffff,
         0 0 35px #00ffff,
         0 0 40px #00ffff;
-    animation: pulsate 2s infinite alternate;
 }
 
 @keyframes pulsate {
@@ -55,12 +54,6 @@ body {
         inset 0 0 10px #00ffff;
 }
 
-.neon-glow {
-    box-shadow:
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #ff00ff;
-}
 
 /* Navigation */
 .nav-container {
@@ -80,20 +73,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .nav-link {

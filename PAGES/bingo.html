@@ -10,10 +10,81 @@
 <body class="bg-gray-900 text-white font-bold min-h-screen flex flex-col">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-[#0f0a1a] shadow-md flex items-center justify-between px-6 py-3">
-    <div class="flex items-center gap-4">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1fe1996-78e7-4dc9-994a-aa43fc794025.png" alt="Logo circular con estilo neón en colores rosa y azul brillante" class="w-12 h-12 rounded-full object-cover ring-4 ring-[#ff6ec7] border border-[#00f5ff] shadow-[0_0_10px_#ff6ec7]" />
-      <h1 class="text-2xl select-none">Bingo de la Desgracia</h1>
+  <header class="sticky top-0 w-full bg-[#0f0a1a] shadow-md z-50">
+    <div class="flex items-center justify-between p-4">
+      <!-- Logo grande -->
+      <div class="flex items-center gap-3">
+        <img src="../ASSETS/bingo.png" alt="Logo" class="w-16 h-16 rounded-full object-cover neon-border neon-purple" />
+        <h1 class="text-2xl font-bold text-[#ff6ec7]">Bingo Vil</h1>
+      </div>
+
+      <!-- Nav Desktop -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="../index.html" class="text-white hover:text-[#00f5ff] transition-colors">Inicio</a>
+        <button id="juegosBtn" class="text-white hover:text-[#00f5ff] transition-colors">Juegos</button>
+
+      </div>
+
+      <!-- Botón hamburguesa Mobile -->
+      <button id="menuToggle" class="md:hidden text-neon">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Panel Juegos Desktop / Mobile -->
+    <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-min auto-rows-fr">
+        <a href="../index.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Inicio
+        </a>
+        <a href="./Lo_bancas.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Lo
+          bancas?</a>
+        <a href="./Oraculo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          oráculo del pedo</a>
+        <a href="./Ruleta.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Ruleta
+          de Vicios</a>
+        <a href="./Vaso.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          Vaso Del Destino</a>
+        <a href="./Decilo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Decílo
+          o Hacelo</a>
+        <a href="./aproximate.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Aproximate</a>
+        <a href="./apurate.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate
+          o Perde</a>
+        <a href="./bingo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">bingo vil</a>
+        <a href="./boomerang.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang
+          Maldito</a>
+        <a href="./interrogatorio.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">El
+          interrogatorio</a>
+        <a href="./pueblo.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">La
+          Voz Del Pueblo</a>
+          <a href="./besar.html"
+          class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Bes*r, C*ger, Mat*r</a>
+        <a href="./reglas.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Reglas
+        </a>
+        <a href="./contacto.html"
+          class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
+          Contacto
+        </a>
+      </div>      <div class="mt-6 flex justify-center">
+        <button id="closePanel"
+          class="px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">Cerrar</button>
+      </div>
     </div>
   </header>
 

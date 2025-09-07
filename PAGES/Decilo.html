@@ -16,13 +16,7 @@
     <link rel="stylesheet" href="../CSS/open.css">
 </head>
 
-<body class="min-h-screen flex flex-col justify-between">
-    <main class="flex-grow">
-        <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
-                alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
-                class="w-full h-full object-cover opacity-20 pointer-events-none" />
-        </div>
+<body class="min-h-screen flex flex-col bg-[#0f0a1a]">
         <header class="sticky top-0 w-full bg-[#0f0a1a] shadow-md z-50">
         <div class="flex items-center justify-between p-4">
             <!-- Logo grande -->
@@ -48,8 +42,7 @@
         </div>
 
         <!-- Panel Juegos Desktop / Mobile -->
-        <!-- Panel Juegos Desktop / Mobile -->
-    <div id="juegosPanel" class="hidden fixed inset-0 bg-[#121012]/95 backdrop-blur-lg p-6 overflow-y-auto z-40">
+    <div id="juegosPanel" class="hidden absolute top-full left-0 w-full max-h-[80vh] overflow-y-auto bg-[#121012]/95 backdrop-blur-lg p-6 z-40">
       <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:auto-rows-min auto-rows-fr">
         <a href="../index.html"
           class="col-span-2 md:col-span-3 flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition py-10 md:py-14">
@@ -75,7 +68,7 @@
         <a href="./apurate.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Apurate
           o Perde</a>
-        <a href="./tablero.html"
+        <a href="./bingo.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">bingo vil</a>
         <a href="./boomerang.html"
           class="aspect-[3/2] flex items-center justify-center text-white font-bold rounded-lg bg-gradient-to-r from-pink-300 to-[#00f5ff] hover:opacity-90 transition">Boomerang
@@ -101,6 +94,12 @@
   </div>
 </div>
     </header>
+    <main class="flex-grow">
+        <div class="absolute inset-0 bg-black bg-opacity-70 z-0 pointer-events-none">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c53a068-7aaf-4dd0-9d7c-3738bf93b48e.png"
+                alt="Fondo abstracto de luces neón en tonos dorados y morados simulando el ambiente de una fiesta nocturna"
+                class="w-full h-full object-cover opacity-20 pointer-events-none" />
+        </div>
         <div class="container mx-auto max-w-2xl relative z-10">
 
             <!-- Setup Form -->

@@ -198,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start game from rules card
     function startGameFromRules() {
-        document.getElementById('new-phrase-btn')?.classList.add('hidden');
         gameState.prompts = promptnuevo;
         if (gameState.players.length < 2) {
             alert('¡Necesitas al menos 2 jugadores para empezar!');

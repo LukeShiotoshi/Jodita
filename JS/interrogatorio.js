@@ -315,4 +315,18 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add('loaded');
         }, 100);
     });
+    window.addPlayer = addPlayer;
+window.updatePlayersList = updatePlayersList;
+window.removePlayer = removePlayer;
+window.startGame = startGame;
+window.setupRuleta = setupRuleta;
+window.spinRuleta = spinRuleta;
+window.startTimer = startTimer;
+window.updateTimer = updateTimer;
+window.showQuestions = showQuestions;
+window.updateCarousel = updateCarousel;
+window.nextQuestion = nextQuestion;
+window.prevQuestion = prevQuestion;
+window.penalize = penalize;
+window.toggleRules = toggleRules;
 });

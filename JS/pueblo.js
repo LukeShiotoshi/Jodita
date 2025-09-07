@@ -112,154 +112,148 @@ const promptnuevo = [
     "El que más ha ghosteado a alguien"
 ];
 document.addEventListener("DOMContentLoaded", () => {
-function agregarSinRepetir(nuevos, acumulador) {
-  nuevos.forEach(p => {
-    if (!acumulador.includes(p)) {
-      acumulador.push(p);
-    }
-  });
-}
-
-// Llamada al cargar
-agregarSinRepetir(promptnuevo, prompt);
-// Elementos del DOM
-const phraseDisplay = document.getElementById('current-phrase');
-const newPhraseBtn = document.getElementById('new-phrase-btn');
-const phraseCounter = document.getElementById('phrase-counter');
-const totalprompt = document.getElementById('total-prompt');
-
-// Estado del juego
-let usedprompt = [];
-let currentPhraseIndex = 0;
-
-// Inicialización
-function initGame() {
-    totalprompt.textContent = prompt.length;
-    phraseCounter.textContent = '0';
-    console.log('Juego inicializado correctamente');
-}
-
-// Función simplificada para obtener frase aleatoria
-function getRandomPhrase() {
-    // Si ya usamos todas las frases, reiniciamos
-    if (usedprompt.length >= prompt.length) {
-        usedprompt = [];
-        alert('¡Se reinician las frases! Comienza de nuevo.');
+    function agregarSinRepetir(nuevos, acumulador) {
+        nuevos.forEach(p => {
+            if (!acumulador.includes(p)) {
+                acumulador.push(p);
+            }
+        });
     }
 
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * prompt.length);
-    } while (usedprompt.includes(randomIndex));
+    // Llamada al cargar
+    agregarSinRepetir(promptnuevo, prompt);
+    // Elementos del DOM
+    const phraseDisplay = document.getElementById('current-phrase');
+    const newPhraseBtn = document.getElementById('new-phrase-btn');
+    const phraseCounter = document.getElementById('phrase-counter');
+    const totalprompt = document.getElementById('total-prompt');
 
-    usedprompt.push(randomIndex);
-    currentPhraseIndex = usedprompt.length;
+    // Estado del juego
+    let usedprompt = [];
+    let currentPhraseIndex = 0;
 
-    return {
-        text: prompt[randomIndex],
-        index: currentPhraseIndex
-    };
-}
-
-// Función para mostrar nueva frase con animación
-function showNewPhrase() {
-    try {
-        const newPhraseData = getRandomPhrase();
-
-        // Animación de desvanecimiento
-        phraseDisplay.style.transition = 'all 0.3s ease';
-        phraseDisplay.style.opacity = '0';
-        phraseDisplay.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-            phraseDisplay.textContent = newPhraseData.text;
-            phraseCounter.textContent = newPhraseData.index;
-
-            // Restaurar opacidad y posición
-            phraseDisplay.style.opacity = '1';
-            phraseDisplay.style.transform = 'translateY(0)';
-
-            // Reproducir sonido de neón
-            playNeonSound();
-
-            console.log('Nueva frase mostrada:', newPhraseData.text);
-        }, 300);
-
-    } catch (error) {
-        console.error('Error al mostrar nueva frase:', error);
-        phraseDisplay.textContent = '¡Error! Intenta de nuevo.';
+    // Inicialización
+    function initGame() {
+        totalprompt.textContent = prompt.length;
+        phraseCounter.textContent = '0';
+        console.log('Juego inicializado correctamente');
     }
-}
 
-// Efecto de sonido de neón
-function playNeonSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(300, audioContext.currentTime + 0.3);
-
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-
-        oscillator.start();
-        oscillator.stop(audioContext.currentTime + 0.3);
-    } catch (error) {
-        console.log('Audio context no disponible en este navegador');
-    }
-}
-
-// Event Listeners
-function setupEventListeners() {
-    // Click en el botón
-    newPhraseBtn.addEventListener('click', function () {
-        console.log('Botón clickeado - mostrando nueva frase');
-        showNewPhrase();
-    });
-
-    // Teclado - espacio o enter
-    document.addEventListener('keydown', function (e) {
-        if (e.code === 'Space' || e.code === 'Enter') {
-            e.preventDefault();
-            console.log('Tecla presionada - mostrando nueva frase');
-            showNewPhrase();
+    // Función simplificada para obtener frase aleatoria
+    function getRandomPhrase() {
+        // Si ya usamos todas las frases, reiniciamos
+        if (usedprompt.length >= prompt.length) {
+            usedprompt = [];
+            alert('¡Se reinician las frases! Comienza de nuevo.');
         }
+
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * prompt.length);
+        } while (usedprompt.includes(randomIndex));
+
+        usedprompt.push(randomIndex);
+        currentPhraseIndex = usedprompt.length;
+
+        return {
+            text: prompt[randomIndex],
+            index: currentPhraseIndex
+        };
+    }
+
+    // Función para mostrar nueva frase con animación
+    function showNewPhrase() {
+        try {
+            const newPhraseData = getRandomPhrase();
+
+            // Animación de desvanecimiento
+            phraseDisplay.style.transition = 'all 0.3s ease';
+            phraseDisplay.style.opacity = '0';
+            phraseDisplay.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                phraseDisplay.textContent = newPhraseData.text;
+
+
+                // Restaurar opacidad y posición
+                phraseDisplay.style.opacity = '1';
+                phraseDisplay.style.transform = 'translateY(0)';
+
+                // Reproducir sonido de neón
+                playNeonSound();
+
+                console.log('Nueva frase mostrada:', newPhraseData.text);
+            }, 300);
+
+        } catch (error) {
+            console.error('Error al mostrar nueva frase:', error);
+            phraseDisplay.textContent = '¡Error! Intenta de nuevo.';
+        }
+    }
+
+    // Efecto de sonido de neón
+    function playNeonSound() {
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(300, audioContext.currentTime + 0.3);
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.3);
+        } catch (error) {
+            console.log('Audio context no disponible en este navegador');
+        }
+    }
+
+    // Event Listeners
+    function setupEventListeners() {
+        // Click en el botón
+        newPhraseBtn.addEventListener('click', function () {
+            console.log('Botón clickeado - mostrando nueva frase');
+            showNewPhrase();
+        });
+
+        // Teclado - espacio o enter
+        document.addEventListener('keydown', function (e) {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                console.log('Tecla presionada - mostrando nueva frase');
+                showNewPhrase();
+            }
+        });
+
+        // Touch para dispositivos móviles
+        newPhraseBtn.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+        });
+
+        newPhraseBtn.addEventListener('touchend', function (e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+            showNewPhrase();
+        });
+    }
+
+    // Manejo de errores global
+    window.addEventListener('error', function (e) {
+        console.error('Error global:', e.error);
+        alert('Ocurrió un error. Por favor, recarga la página.');
+        initGame();
+        setupEventListeners();
     });
-
-    // Touch para dispositivos móviles
-    newPhraseBtn.addEventListener('touchstart', function (e) {
-        e.preventDefault();
-        this.style.transform = 'scale(0.95)';
-    });
-
-    newPhraseBtn.addEventListener('touchend', function (e) {
-        e.preventDefault();
-        this.style.transform = 'scale(1)';
-        showNewPhrase();
-    });
-}
-
-// Inicializar el juego cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM cargado - inicializando juego');
-    initGame();
-    setupEventListeners();
-
-    // Mensaje de confirmación en consola
-    console.log('✅ Juego "Voz del Pueblo" cargado correctamente');
-    console.log('📝 Frases disponibles:', prompt.length);
-    console.log('🎮 Presiona el botón o la tecla espacio para comenzar');
-});
-
-// Manejo de errores global
-window.addEventListener('error', function (e) {
-    console.error('Error global:', e.error);
-    alert('Ocurrió un error. Por favor, recarga la página.');
-});
+    window.showNewPhrase = showNewPhrase;
+window.initGame = initGame;
+initGame();
+setupEventListeners();
 });
